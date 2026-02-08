@@ -1,0 +1,30 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  href: string;
+  buttonText?: string;
+  imageClass?: string;
+}
+
+const {
+  title,
+  description,
+  href,
+  buttonText = "Ver más",
+  imageClass = ""
+} = Astro.props;
+---
+
+<div class="desarrolloContainer">
+  <div class="desarrolloElement desarrolloText">
+    <div class="desarrolloTittle">{title}</div>
+    <div class="desarrolloDescription">
+      {description}
+      <div class="deCo_button_container">
+        <a href={href} class="deCo_button">{buttonText}</a>
+      </div>
+    </div>
+  </div>
+  <div class={`desarrolloElement desarrolloImg ${imageClass}`}></div>
+</div>

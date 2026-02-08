@@ -1,0 +1,10 @@
+{
+  "featured": [
+    {
+      "slug": "proyecto",
+      "title": "PROYECTO DESTACADO",
+      "description": "Descripción general del proyecto. Este contenido es editable y no refiere a ningún desarrollo específico.",
+      "buttonText": "Ver más"
+    }
+  ]
+}

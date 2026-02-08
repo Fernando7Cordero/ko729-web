@@ -1,0 +1,32 @@
+---
+import "../../styles/pages/desarrolloStyle.css";
+import ProjectDetail from "../../components/ProjectDetail.astro";
+import ProjectLayout from "../../layouts/ProjectLayout.astro";
+import { getProjectBySlug, getProjectPaths, metaContent } from "../../data/content";
+
+export function getStaticPaths() {
+  return getProjectPaths();
+}
+
+const { project: projectProp } = Astro.props;
+const slug = Astro.params.slug ?? "";
+const project = projectProp ?? getProjectBySlug(slug);
+if (!project) {
+  return Astro.redirect("/desarrollos");
+}
+const pageMeta = metaContent.pages.project;
+const title = `${project.name} | KO729`;
+const description = project.metaDescription ?? pageMeta.description;
+const keywords = project.metaKeywords ?? pageMeta.keywords;
+const sectionTitle = project.sectionTitle ?? project.name;
+---
+
+<ProjectLayout
+  title={title}
+  description={description}
+  keywords={keywords}
+  sectionTitle={sectionTitle}
+  pageCss={[]}
+>
+  <ProjectDetail project={project} />
+</ProjectLayout>

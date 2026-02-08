@@ -1,143 +1,34 @@
 ---
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
+import "../styles/pages/inversion.css";
+import "../styles/shared/buttons.css";
+import "../styles/shared/sections.css";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import SectionBlock from "../components/ui/SectionBlock.astro";
+import SectionTitle from "../components/ui/SectionTitle.astro";
+import { inversionContent, metaContent } from "../data/content";
+
+const title = "Invierte con Nosotros | KO729";
+const description = metaContent.pages.inversion.description;
+const keywords = metaContent.pages.inversion.keywords;
 ---
 
-<!doctype html>
-<html lang="es">
-  <head>
-    <!-- META DESCRIPTION -->
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content=" // PENDIENTE // " />
-    <meta name="keywords" content=" // PENDIENTE // " />
+<BaseLayout
+  title={title}
+  description={description}
+  keywords={keywords}
+  pageCss={[]}
+>
+  <SectionTitle title={inversionContent.title} />
 
-    <!-- ESTILOS -->
-    <link rel="stylesheet" href="/recursos/format.css" />
-    <link rel="stylesheet" href="/recursos/normalize.css" />
-    <link rel="stylesheet" href="/recursos/inversion.css" />
-
-    <!-- GOOGLE FONTS -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-
-    <!-- Josefin Sans (Cuerpos secundarios) -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@500&display=swap"
-      rel="stylesheet"
-    />
-
-    <!-- Open Sans -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@80,600&display=swap"
-      rel="stylesheet"
-    />
-
-    <!-- Roboto Flex -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz@8.144&display=swap"
-      rel="stylesheet"
-    />
-
-    <title>Invierte con Nosotros</title>
-  </head>
-
-  <body>
-    <Header />
-
-    <!-- (Si tu header.js maneja el menú responsive, esto debe existir) -->
-    <nav id="sideNavBar">
-      <div class="close_bar_responsive_container">
-        <div class="close_nav_bar" id="closeNavBar">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke-width="1.5"
-            stroke="currentColor"
-            class="w-6 h-6 menu_close"
-          >
-            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
-          </svg>
-        </div>
+  <div class="inversionContainer">
+    {inversionContent.blocks.map((block) => (
+      <div class="elementContainer">
+        <SectionBlock
+          title={block.title}
+          description={block.description}
+          imageClass={block.imageClass}
+        />
       </div>
-
-      <div class="nav_bar_container">
-        <div class="nav_container_responsive">
-          <a href="/index.html" class="nav_element">Inicio</a>
-        </div>
-        <div class="nav_container_responsive">
-          <a href="/ko729/desarrollos.html" class="nav_element">Desarrollos</a>
-        </div>
-        <div class="nav_container_responsive">
-          <a href="/ko729/construccion.html" class="nav_element">Construcción<br />a la medida</a>
-        </div>
-        <div class="nav_container_responsive">
-          <a href="/ko729/inversion.html" class="nav_element nav_active"
-            >Invierte con<br />Nosotros</a
-          >
-        </div>
-        <div class="nav_container_responsive">
-          <a href="/ko729/aboutUs.html" class="nav_element">Acerca de<br />KO729</a>
-        </div>
-        <div class="nav_container_responsive">
-          <a href="/ko729/contact.html" class="nav_element">Contacto</a>
-        </div>
-      </div>
-    </nav>
-
-    <div class="main-content">
-      <!-- TÍTULO -->
-      <div class="tittle_container">
-        <div class="tittle_elementsContainer">
-          <div class="tittle_element">
-            <img src="/ko729/img/logos/letras.jpg" class="tittle_img" alt="logo" />
-          </div>
-          <div class="tittle">INVIERTE CON NOSOTROS</div>
-        </div>
-      </div>
-
-      <!-- CONTENIDO (según el boceto) -->
-      <div class="inversionContainer">
-        <div class="elementContainer">
-          <div class="textContainer">
-            <div class="textCenter">
-              <div class="tituloContainer">TERRENOS</div>
-              <div class="descripcionContainer">
-                Aporta tu terreno para el desarrollo de uno de nuestros proyectos y te
-                ofrecemos una utilidad por tu terreno, tomando su valor como inversión.
-                Puedes cobrar tu utilidad con dinero o con los departamentos construidos.
-                Obtienes un porcentaje de participación dentro del proyecto.
-              </div>
-            </div>
-          </div>
-
-          <div class="imgContainer img1"></div>
-        </div>
-
-        <div class="elementContainer">
-          <div class="textContainer">
-            <div class="textCenter">
-              <div class="tituloContainer">CAPITAL</div>
-              <div class="descripcionContainer">
-                Coloca tu dinero en uno de nuestros desarrollos, con el respaldo de un bien
-                inmueble. Obtén rendimientos a partir de 26% global y 17% anual. Puedes cobrar
-                tu utilidad con dinero o con los departamentos construidos. Obtienes un
-                porcentaje de participación dentro del proyecto.
-              </div>
-            </div>
-          </div>
-
-          <div class="imgContainer img2"></div>
-        </div>
-      </div>
-    </div>
-
-    <Footer />
-
-    <!-- FUNCIONES -->
-    <script src="/recursos/header.js"></script>
-    <script src="/recursos/funciones.js"></script>
-  </body>
-</html>
+    ))}
+  </div>
+</BaseLayout>

@@ -1,12 +1,16 @@
 ---
+import "../styles/pages/contact.css";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import SectionTitle from "../components/ui/SectionTitle.astro";
+import { contactLinks, contactoContent, metaContent } from "../data/content";
 
 const pageTitle = "Contacto | KO729";
-const pageDescription = "// PENDIENTE //";
-const pageKeywords = "// PENDIENTE //";
+const pageDescription = metaContent.pages.contacto.description;
+const pageKeywords = metaContent.pages.contacto.keywords;
 
-// CSS del boceto (ya debe existir en /public/recursos/)
-const pageCss = ["/recursos/contact.css"];
+// CSS de la página se importa desde src/styles/pages
+const pageCss: string[] = [];
+---
 
 <BaseLayout
   title={pageTitle}
@@ -14,49 +18,28 @@ const pageCss = ["/recursos/contact.css"];
   keywords={pageKeywords}
   pageCss={pageCss}
 >
-  <div class="main-content">
-    <div class="tittle_container">
-      <div class="tittle_elementsContainer">
-        <div class="tittle_element">
-          <img src="/img/logos/letras.jpg" class="tittle_img" alt="logo" />
+  <SectionTitle title={contactoContent.title} />
+
+  <div class="contactContainer">
+    <div class="contactBox text">
+      <div class="textElements">
+        <div class="speechContainer">{contactoContent.intro}</div>
+
+        <div class="datosContainer">
+                {contactLinks.map((link) => (
+            <div class="elementContainer">
+              <a href={link.href}>
+                      <img src={link.iconSrc} alt={link.label.toLowerCase()} class="footer_icon" />
+                {link.label}
+              </a>
+            </div>
+          ))}
         </div>
-        <div class="tittle">CONTACTO</div>
       </div>
     </div>
 
-    <div class="contactContainer">
-      <div class="contactBox text">
-        <div class="textElements">
-          <div class="speechContainer">¡Contáctanos y creemos tu hogar perfecto!</div>
-
-          <div class="datosContainer">
-            <div class="elementContainer">
-              <a href="">
-                <img src="/img/icon/instagram.svg" alt="instagram" class="footer_icon" />
-                Instagram
-              </a>
-            </div>
-
-            <div class="elementContainer">
-              <a href="">
-                <img src="/img/icon/whatsapp.svg" alt="whatsapp" class="footer_icon" />
-                Whatsapp
-              </a>
-            </div>
-
-            <div class="elementContainer">
-              <a href="">
-                <img src="/img/icon/mail.svg" alt="mail" class="footer_icon" />
-                Email
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="contactBox image">
-        <div class="contactImg"></div>
-      </div>
+    <div class="contactBox image">
+      <div class="contactImg"></div>
     </div>
   </div>
 </BaseLayout>

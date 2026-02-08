@@ -1,17 +1,20 @@
 ---
+import { assets } from "../config/assets";
+
 const currentPath: string = Astro.url.pathname;
 
 type NavItem = {
   href: string;
   label: string;
+  subLabel?: string;
 };
 
 const navItems: NavItem[] = [
   { href: "/", label: "Inicio" },
-  { href: "/desarrollos", label: "Desarrollos" }, // ojo: si no existe la página, coméntalo temporalmente
-  { href: "/construccion", label: "Construcción a la medida" },
-  { href: "/inversion", label: "Invierte con nosotros" },
-  { href: "/aboutUS", label: "Acerca de KO729" },
+  { href: "/desarrollos", label: "Desarrollos" },
+  { href: "/construccion", label: "Construcción", subLabel: "a la medida" },
+  { href: "/inversion", label: "Invierte con", subLabel: "Nosotros" },
+  { href: "/aboutUS", label: "Acerca de", subLabel: "KO729" },
   { href: "/contacto", label: "Contacto" }
 ];
 
@@ -22,57 +25,68 @@ const isActive = (href: string): boolean => {
 ---
 
 <header class="site-header">
-  <div class="header-overlay">
-    <a href="/" class="brand" aria-label="Ir al inicio de KO729">
-      <img src="/img/logos/logo.png" alt="KO729" class="brand-logo" />
+  <div class="logo_container">
+    <a href="/" class="logo_header">
+      <img src={assets.logos.main} alt="logo" />
     </a>
-
-    <button
-      id="menuToggle"
-      class="menu-toggle"
-      type="button"
-      aria-label="Abrir menú"
-      aria-controls="sideNavBar"
-      aria-expanded="false"
-    >
-      <span></span><span></span><span></span>
-    </button>
-
-    <nav class="desktop-nav" aria-label="Navegación principal">
-      <ul>
-        {
-          navItems.map((item) => (
-            <li>
-              <a href={item.href} class={isActive(item.href) ? "active" : ""}>
-                {item.label}
-              </a>
-            </li>
-          ))
-        }
-      </ul>
-    </nav>
   </div>
 
-  <aside id="sideNavBar" class="side-nav" aria-label="Menú móvil">
-    <div class="side-nav-header">
-      <img src="/img/logos/logo.png" alt="KO729" class="side-logo" />
-      <button id="closeMenu" class="close-menu" type="button" aria-label="Cerrar menú">✕</button>
-    </div>
+  <div class="nav_bar">
+    {
+      navItems.map((item) => (
+        <div class="nav_container">
+          <a href={item.href} class={isActive(item.href) ? "nav_active" : ""}>
+            {item.label}
+            {item.subLabel ? <><br />{item.subLabel}</> : null}
+          </a>
+        </div>
+      ))
+    }
+  </div>
 
-    <nav aria-label="Navegación móvil">
-      <ul>
-        {
-          navItems.map((item) => (
-            <li>
-              <a href={item.href} class={isActive(item.href) ? "active" : ""}>
-                {item.label}
-              </a>
-            </li>
-          ))
-        }
-      </ul>
-    </nav>
-  </aside>
-
-  <div id="menuBackdrop" class="menu-backdrop" aria-hidden="true"></div>
+  <div class="nav_bar_responsive" id="menuResponsive">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke-width="1.5"
+      stroke="currentColor"
+      class="w-6 h-6 menu_bars"
+    >
+      <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25H12" />
+    </svg>
+  </div>
 </header>
+
+<nav id="sideNavBar">
+  <div class="close_bar_responsive_container">
+    <div class="close_nav_bar" id="closeNavBar">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        class="w-6 h-6 menu_close"
+      >
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+      </svg>
+    </div>
+  </div>
+
+  <div class="nav_bar_container">
+    {
+      navItems.map((item) => (
+        <div class="nav_container_responsive">
+          <a
+            href={item.href}
+            class={`nav_element ${isActive(item.href) ? "nav_active" : ""}`}
+          >
+            {item.label}
+            {item.subLabel ? <><br />{item.subLabel}</> : null}
+          </a>
+        </div>
+      ))
+    }
+  </div>
+</nav>

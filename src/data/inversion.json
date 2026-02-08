@@ -1,0 +1,15 @@
+{
+  "title": "INVIERTE CON NOSOTROS",
+  "blocks": [
+    {
+      "title": "TERRENOS",
+      "description": "Aporta tu terreno para el desarrollo de uno de nuestros proyectos y te ofrecemos una utilidad por tu terreno, tomando su valor como inversión.<br /><br />Puedes cobrar tu utilidad con dinero o con los departamentos construidos. Obtienes un porcentaje de participación dentro del proyecto.",
+      "imageClass": "img1"
+    },
+    {
+      "title": "CAPITAL",
+      "description": "Coloca tu dinero en uno de nuestros desarrollos, con el respaldo de un bien inmueble.<br /><br />Obtén rendimientos a partir de 26% global y 17% anual. Puedes cobrar tu utilidad con dinero o con los departamentos construidos. Obtienes un porcentaje de participación dentro del proyecto.",
+      "imageClass": "img2"
+    }
+  ]
+}

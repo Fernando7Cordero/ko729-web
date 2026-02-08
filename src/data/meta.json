@@ -1,0 +1,28 @@
+{
+  "pages": {
+    "about": {
+      "description": "Conoce la filosofía de KO729: arquitectura y construcción con enfoque integral, calidad y detalle en cada etapa.",
+      "keywords": "KO729, arquitectura, construcción, despacho, diseño, ingeniería"
+    },
+    "construccion": {
+      "description": "Servicios de diseño y construcción a la medida con calidad, planificación y acompañamiento completo.",
+      "keywords": "construcción, diseño, proyectos, arquitectura, KO729"
+    },
+    "inversion": {
+      "description": "Opciones para invertir con KO729 en desarrollos inmobiliarios mediante terreno o capital.",
+      "keywords": "inversión, desarrollos, bienes raíces, KO729"
+    },
+    "contacto": {
+      "description": "Ponte en contacto con KO729 para iniciar tu proyecto de arquitectura y construcción.",
+      "keywords": "contacto, KO729, arquitectura, construcción"
+    },
+    "desarrollos": {
+      "description": "Explora los desarrollos de KO729 y conoce sus proyectos inmobiliarios.",
+      "keywords": "desarrollos, proyectos, KO729"
+    },
+    "project": {
+      "description": "Detalle del desarrollo inmobiliario y características principales del proyecto.",
+      "keywords": "proyecto, desarrollo, KO729"
+    }
+  }
+}

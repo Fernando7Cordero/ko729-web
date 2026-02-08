@@ -1,4 +1,3 @@
-
 // Funcion Para activar barra lateral 
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -31,6 +30,37 @@ document.addEventListener('DOMContentLoaded', function () {
       barralateral.style.left = '100vw';
       
     });
+  });
+
+// Header transparente solo mientras esté sobre el hero
+
+document.addEventListener('DOMContentLoaded', function () {
+  var header = document.querySelector('.site-header');
+  var hero = document.querySelector('.hero');
+  if (!header || !hero) return;
+
+  var wasTransparent = header.classList.contains('header-transparent');
+  var updateHeaderStyle = function () {
+    var heroBottom = hero.getBoundingClientRect().bottom;
+    var threshold = Math.max(0, heroBottom - header.offsetHeight);
+    if (threshold > 0) {
+      header.classList.add('header-transparent');
+    } else {
+      header.classList.remove('header-transparent');
+    }
+
+    var isTransparent = header.classList.contains('header-transparent');
+    if (isTransparent !== wasTransparent) {
+      window.dispatchEvent(new CustomEvent('header:transparent', {
+        detail: { isTransparent: isTransparent }
+      }));
+      wasTransparent = isTransparent;
+    }
+  };
+
+  updateHeaderStyle();
+  window.addEventListener('scroll', updateHeaderStyle, { passive: true });
+  window.addEventListener('resize', updateHeaderStyle);
   });
 
 

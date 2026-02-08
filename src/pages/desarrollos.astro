@@ -1,0 +1,31 @@
+---
+import "../styles/pages/desarrollos.css";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ProjectCard from "../components/ui/ProjectCard.astro";
+import SectionTitle from "../components/ui/SectionTitle.astro";
+import { metaContent, validProjectSummaries } from "../data/content";
+
+const title = "Desarrollos | KO729";
+const description = metaContent.pages.desarrollos.description;
+const keywords = metaContent.pages.desarrollos.keywords;
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  keywords={keywords}
+  pageCss={[]}
+>
+  <SectionTitle title="DESARROLLOS" />
+
+  <div class="desarrollosContainer">
+    {validProjectSummaries.map((project) => (
+      <ProjectCard
+        title={project.title}
+        description={project.description}
+        href={`/desarrollos/${project.slug}`}
+        buttonText={project.buttonText}
+      />
+    ))}
+  </div>
+</BaseLayout>

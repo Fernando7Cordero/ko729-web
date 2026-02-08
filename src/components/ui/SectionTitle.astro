@@ -1,0 +1,24 @@
+---
+import { assets } from "../../config/assets";
+
+interface Props {
+  title: string;
+  logoSrc?: string;
+  logoAlt?: string;
+}
+
+const {
+  title,
+  logoSrc = assets.logos.letras,
+  logoAlt = "logo"
+} = Astro.props;
+---
+
+<div class="tittle_container">
+  <div class="tittle_elementsContainer">
+    <div class="tittle_element">
+      <img src={logoSrc} class="tittle_img" alt={logoAlt} />
+    </div>
+    <div class="tittle">{title}</div>
+  </div>
+</div>

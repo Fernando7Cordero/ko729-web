@@ -1,0 +1,10 @@
+:root {
+  --asset-index-desarrollos: url("/assets/index/section-desarrollos.jpg");
+  --asset-index-construccion: url("/assets/index/section-construccion.jpg");
+
+  --asset-construccion-diseno-1: url("/assets/construccion/diseno-1.jpg");
+  --asset-construccion-construccion-1: url("/assets/construccion/construccion-1.jpg");
+  --asset-construccion-servicios: url("/assets/construccion/servicios.jpg");
+
+  --asset-desarrollos-proyecto: url("/assets/desarrollos/proyecto-placeholder.jpg");
+}

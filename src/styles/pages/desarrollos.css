@@ -1,4 +1,6 @@
 
+@import "../shared/buttons.css";
+
 /* ESTILOS PARA ELEMENTO DE DESARROLLO */
 
 
@@ -48,7 +50,7 @@
     width: 40%;
     min-height: 100%;
 
-    background-image: url(../img/desarrollos/yacatas.jpg);
+    background-image: var(--asset-desarrollos-proyecto);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -91,38 +93,7 @@
 
 
 .deCo_button_container {
-    display: flex;
-    
-    width: 100%;
-
-    align-items: center;
-    justify-content: center;
-
     margin-top: 3vh;
-}
-
-
-.deCo_button {
-    
-    font-size: 2vh;
-    padding: 1vh;
-
-    font-family:var(--JosefinSans);
-    font-weight: 100;
-
-    text-decoration: none;
-    color: var(--logo);
-
-    transition: .5s all;
-
-    border: solid 1px;
-
-}
-
-.deCo_button_container :hover {
-
-    background-color: var(--logo);
-    color: var(--green-main);
 }
 
 
@@ -191,4 +162,3 @@
     
 
 }
-

@@ -1,0 +1,21 @@
+{
+  "hero": {
+    "title": "ARCHITECTURE + ENGINEERING"
+  },
+  "sections": [
+    {
+      "title": "DESARROLLOS",
+      "description": "Departamentos boutique en ubicaciones clave de la CDMX, diseñados para vivir con calma y estilo.<br /><br />&bull; Arquitectura sobria y elegante con materiales de alta calidad.<br />&bull; Distribuciones funcionales y confortables para tu día a día.<br />&bull; Enfoque responsable con el entorno y la armonía urbana.",
+      "href": "/desarrollos",
+      "imageClass": "img1",
+      "buttonText": "Explorar desarrollos"
+    },
+    {
+      "title": "CONSTRUCCIÓN A LA MEDIDA",
+      "description": "Diseñamos y construimos tu espacio ideal con un acompañamiento integral, claro y cercano.<br /><br />&bull; Proyecto ejecutivo, permisos y gestión de obra.<br />&bull; Selección de materiales y acabados premium.<br />&bull; Entrega llave en mano con supervisión continua.",
+      "href": "/construccion",
+      "imageClass": "img2",
+      "buttonText": "Agendar asesoría"
+    }
+  ]
+}

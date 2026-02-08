@@ -1,0 +1,26 @@
+{
+  "projects": [
+    {
+      "slug": "proyecto",
+      "name": "Proyecto",
+      "sectionTitle": "PROYECTO",
+      "heroImageClass": "renderImg",
+      "heroImageUrl": "",
+      "metaDescription": "Detalle del desarrollo inmobiliario y características principales del proyecto.",
+      "metaKeywords": "proyecto, desarrollo, KO729",
+      "descriptionTitle": "Concepto del proyecto",
+      "description": "Descripción general del proyecto. Este contenido es editable y puede sustituirse con la información real del desarrollo, incluyendo ubicación, tipología y diferenciadores.",
+      "galleryImageClasses": ["galeriaImg1", "galeriaImg2", "galeriaImg3"],
+      "galleryImageUrls": [],
+      "dataTitle": "Datos del proyecto",
+      "dataItems": [
+        "Ubicación: por definir",
+        "Superficie: por definir",
+        "Unidades: por definir",
+        "Entrega: por definir"
+      ],
+      "planImageClass": "plantaImg",
+      "planImageUrl": ""
+    }
+  ]
+}

@@ -1,0 +1,85 @@
+---
+interface ProjectDetailData {
+  name: string;
+  heroImageClass?: string;
+  heroImageUrl?: string;
+  heroImageAlt?: string;
+  descriptionTitle?: string;
+  description: string;
+  galleryImageClasses?: string[];
+  galleryImageUrls?: string[];
+  dataTitle?: string;
+  dataItems?: string[];
+  planImageClass?: string;
+  planImageUrl?: string;
+  planImageAlt?: string;
+}
+
+interface Props {
+  project: ProjectDetailData;
+}
+
+const { project } = Astro.props;
+---
+
+<div class="renderContainer">
+  {project.heroImageUrl ? (
+    <img
+      src={project.heroImageUrl}
+      alt={project.heroImageAlt ?? project.name}
+      class="renderImg"
+    />
+  ) : (
+    <div class={`renderImg ${project.heroImageClass ?? ""}`}></div>
+  )}
+
+  <div class="descriptionContainer">
+    {project.descriptionTitle ? (
+      <div class="tittleDescriptionContainer">{project.descriptionTitle}</div>
+    ) : null}
+    <div class="textDescriptionContainer" set:html={project.description} />
+  </div>
+</div>
+
+{project.galleryImageUrls && project.galleryImageUrls.length ? (
+  <div class="galeriaContainer">
+    {project.galleryImageUrls.map((imageUrl, index) => (
+      <img
+        src={imageUrl}
+        alt={`${project.name} galeria ${index + 1}`}
+        class="galeriaImg"
+      />
+    ))}
+  </div>
+) : project.galleryImageClasses && project.galleryImageClasses.length ? (
+  <div class="galeriaContainer">
+    {project.galleryImageClasses.map((imageClass) => (
+      <div class={`galeriaImg ${imageClass}`}></div>
+    ))}
+  </div>
+) : null}
+
+<div class="datosPlantaContainer">
+  <div class="datosTextContainer">
+    {project.dataTitle ? (
+      <div class="datosTitlleContainer">{project.dataTitle}</div>
+    ) : null}
+    {project.dataItems && project.dataItems.length ? (
+      <div class="datosContainer">
+        {project.dataItems.map((item) => (
+          <div class="datosItem">{item}</div>
+        ))}
+      </div>
+    ) : null}
+  </div>
+
+  {project.planImageUrl ? (
+    <img
+      src={project.planImageUrl}
+      alt={project.planImageAlt ?? `Planta ${project.name}`}
+      class="plantaContainer"
+    />
+  ) : (
+    <div class={`plantaContainer ${project.planImageClass ?? ""}`}></div>
+  )}
+</div>

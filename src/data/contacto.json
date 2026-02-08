@@ -1,0 +1,21 @@
+{
+  "title": "CONTACTO",
+  "intro": "¡Contáctanos y creemos tu hogar perfecto!",
+  "links": [
+    {
+      "label": "Instagram",
+      "href": "https://instagram.com/ko729",
+      "icon": "instagram"
+    },
+    {
+      "label": "Whatsapp",
+      "href": "https://wa.me/5210000000000",
+      "icon": "whatsapp"
+    },
+    {
+      "label": "Email",
+      "href": "mailto:contacto@ko729.com",
+      "icon": "mail"
+    }
+  ]
+}

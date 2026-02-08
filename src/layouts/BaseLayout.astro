@@ -1,4 +1,7 @@
 ---
+import "../styles/normalize.css";
+import "../styles/tokens.css";
+import "../styles/globals.css";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 
@@ -27,20 +30,44 @@ const {
     <meta name="keywords" content={keywords} />
 
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-    <link rel="stylesheet" href="/recursos/normalize.css" />
-    <link rel="stylesheet" href="/recursos/format.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@80,600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz@8..144&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
 
     {pageCss.map((href: string) => <link rel="stylesheet" href={href} />)}
   </head>
 
   <body>
     <Header />
-    <main>
+    <div class="main-content">
       <slot />
-    </main>
+    </div>
     <Footer />
 
-    <script src="/recursos/header.js" defer></script>
-    <script src="/recursos/funciones.js" defer></script>
+  <script src="/scripts/header.js" defer></script>
   </body>
 </html>

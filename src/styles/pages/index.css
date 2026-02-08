@@ -1,0 +1,150 @@
+/* Hero */
+
+.hero {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    min-height: 680px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+}
+
+.hero_media {
+    position: absolute;
+    inset: 0;
+}
+
+.hero_media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: blur(0.3rem);
+    transform: scale(1.03);
+}
+
+.banner_element {
+    filter: blur(0.3rem);
+}
+
+.hero_overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.35);
+}
+
+.hero_content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    text-align: center;
+    position: fixed;
+    top: 50vh;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: min(80vw, 720px);
+    pointer-events: none;
+}
+
+@media only screen and (max-width: 900px) {
+    .hero_content {
+        position: absolute;
+    }
+}
+
+.hero_logo {
+    width: min(60vw, 460px);
+    max-width: 520px;
+    position: relative;
+    z-index: 1;
+        filter: drop-shadow(0 0 14px rgba(243, 210, 121, 0.35))
+            drop-shadow(0 12px 24px rgba(0, 0, 0, 0.35));
+        animation: hero-fade-in 0.7s ease-out both;
+}
+
+.hero_subtitle {
+    color: var(--logo);
+    font-family: var(--JosefinSans);
+    font-size: clamp(1.05rem, 2.8vw, 1.7rem);
+    letter-spacing: 0.4rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-shadow: 0 0 12px rgba(243, 210, 121, 0.35);
+}
+
+@keyframes hero-fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Estilos de Desarrollos + Construccion */
+
+.desarrollosConstruccion_Container {
+    display: block;
+
+    width: 100vw;
+
+    background-color: #3a3d33;
+
+    color: var(--logo);
+    position: relative;
+    z-index: 2;
+    scroll-margin-top: var(--header-height);
+    background-color: #3a3d33;
+    box-shadow: 0 -30px 60px rgba(0, 0, 0, 0.25);
+    padding-top: calc(var(--header-height) + 2vh);
+}
+
+.desarrollosConstruccion {
+    display: flex;
+
+    width: 100vw;
+    min-height: 60vh;
+
+    padding-bottom: 4vh;
+    padding-top: 4vh;
+
+    justify-content: center;
+    align-items: center;
+   
+
+.desarrollosConstruccion:nth-child(even) .sectionBlock {
+    flex-direction: row-reverse;
+}
+}
+
+
+/* Clases extra específicas de esta página */
+
+.img1 {
+    background-image: var(--asset-index-desarrollos);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.img2 {
+    background-image: var(--asset-index-construccion);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+}
+
+
+/* Estilos del COLLAGE */
+
+.collageContainer {
+    height: 0vh;
+}

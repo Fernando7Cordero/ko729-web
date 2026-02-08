@@ -1,0 +1,30 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  href?: string;
+  buttonText?: string;
+  imageClass?: string;
+}
+
+const {
+  title,
+  description,
+  href,
+  buttonText = "Ver más",
+  imageClass = ""
+} = Astro.props;
+---
+
+<div class="sectionBlock">
+  <div class="sectionText">
+    <div class="sectionTitle">{title}</div>
+    <div class="sectionDescription" set:html={description} />
+    {href ? (
+      <div class="deCo_button_container">
+        <a href={href} class="deCo_button">{buttonText}</a>
+      </div>
+    ) : null}
+  </div>
+  <div class={`sectionImage ${imageClass}`}></div>
+</div>

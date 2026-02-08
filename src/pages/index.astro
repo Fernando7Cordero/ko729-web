@@ -1,5 +1,11 @@
 ---
+import "../styles/pages/index.css";
+import "../styles/shared/buttons.css";
+import "../styles/shared/sections.css";
+import { assets } from "../config/assets";
+import { homeContent } from "../data/content";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import SectionBlock from "../components/ui/SectionBlock.astro";
 
 const title = "KO729 | Inicio";
 const description = "Arquitectura, ingeniería y construcción en CDMX.";
@@ -10,96 +16,33 @@ const keywords = "constructora, arquitectura, ingeniería, desarrollos, construc
   title={title}
   description={description}
   keywords={keywords}
-  pageCss={["/recursos/index.css"]}
+  pageCss={[]}
 >
-  <!-- CONTENIDO HOME -->
-  <main>
-    <!-- Banner principal -->
-    <div class="bannerIndex">
-      <img
-        class="imgBannerIndex"
-        id="imgBannerIndex"
-        src="/img/index/banner1.jpg"
-        alt="KO729 - Banner"
-      />
-      <div class="textoBannerIndex">
-        <div class="bannerText1">ARCHITECTURE +</div>
-        <div class="bannerText2">ENGINEERING</div>
-      </div>
+  <section class="hero" id="hero">
+    <div class="hero_media">
+      <img src={assets.index.bannerHome} class="banner_element" alt="" id="banner" />
     </div>
-
-    <!-- Bloques principales -->
-    <div class="container">
-      <div class="mainIndex">
-        <!-- DESARROLLOS -->
-        <div class="mainIndexContenido">
-          <div class="titleMainIndex">DESARROLLOS</div>
-          <div class="descMainIndex">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit
-            repudiandae reprehenderit ut accusamus iusto eius, id dolorem fugit
-            consequuntur placeat.
-          </div>
-
-          <div class="btnMainIndex">
-            <a class="btnMainIndexLink" href="/desarrollos">Ver más</a>
-          </div>
-        </div>
-
-        <!-- CONSTRUCCIÓN A LA MEDIDA -->
-        <div class="mainIndexContenido">
-          <div class="titleMainIndex">CONSTRUCCIÓN A LA MEDIDA</div>
-          <div class="descMainIndex">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit
-            repudiandae reprehenderit ut accusamus iusto eius, id dolorem fugit
-            consequuntur placeat.
-          </div>
-
-          <div class="btnMainIndex">
-            <a class="btnMainIndexLink" href="/construccion">Ver más</a>
-          </div>
-        </div>
-      </div>
+    <div class="hero_overlay"></div>
+    <div class="hero_content">
+      <img src={assets.logos.letrasAlt} alt="KO729" class="hero_logo" />
+      <p class="hero_subtitle">{homeContent.hero.title}</p>
     </div>
+  </section>
 
-    <!-- SERVICIOS -->
-    <div class="serviciosIndex">
-      <div class="titleServiciosIndex">SERVICIOS</div>
-      <div class="container">
-        <div class="serviciosCardIndex">
-          <!-- Inversión -->
-          <div class="serviciosCardIndexContenido">
-            <div class="serviciosCardIndexTitle">INVERSIÓN</div>
-            <div class="serviciosCardIndexDesc">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            </div>
-            <div class="btnMainIndex">
-              <a class="btnMainIndexLink" href="/inversion">Ver más</a>
-            </div>
-          </div>
-
-          <!-- Nosotros -->
-          <div class="serviciosCardIndexContenido">
-            <div class="serviciosCardIndexTitle">NOSOTROS</div>
-            <div class="serviciosCardIndexDesc">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            </div>
-            <div class="btnMainIndex">
-              <a class="btnMainIndexLink" href="/aboutUS">Ver más</a>
-            </div>
-          </div>
-
-          <!-- Contacto -->
-          <div class="serviciosCardIndexContenido">
-            <div class="serviciosCardIndexTitle">CONTACTO</div>
-            <div class="serviciosCardIndexDesc">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            </div>
-            <div class="btnMainIndex">
-              <a class="btnMainIndexLink" href="/contacto">Ver más</a>
-            </div>
-          </div>
-        </div>
+  <div class="desarrollosConstruccion_Container" id="contentStart">
+    {homeContent.sections.map((section) => (
+      <div class="desarrollosConstruccion">
+        <SectionBlock
+          title={section.title}
+          description={section.description}
+          href={section.href}
+          buttonText={section.buttonText}
+          imageClass={section.imageClass}
+        />
       </div>
-    </div>
-  </main>
+    ))}
+  </div>
+
+  <div class="collageContainer"></div>
+  <script src="/scripts/funciones.js" defer></script>
 </BaseLayout>

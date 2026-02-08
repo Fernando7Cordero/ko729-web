@@ -1,0 +1,20 @@
+{
+  "title": "DESIGN & CONSTRUCTION",
+  "blocks": [
+    {
+      "title": "DISEÑO",
+      "description": "Diseñamos espacios que reflejan tu personalidad y se adaptan a tu estilo de vida a partir de los gustos y necesidades de los usuarios, brindando el máximo confort y la mejor habitabilidad.",
+      "imageClass": "img1"
+    },
+    {
+      "title": "CONSTRUCCIÓN",
+      "description": "Planificamos, ejecutamos y supervisamos las actividades necesarias para la realización de las ideas desarrolladas en el diseño, garantizando su materialización con una calidad de excelencia en tiempos y costos óptimos.",
+      "imageClass": "img2"
+    },
+    {
+      "title": "SERVICIOS",
+      "description": "- Construcción a la medida<br />- Proyecto ejecutivo y arquitectonico<br />- Remodelaciones<br />- Interiorismo",
+      "imageClass": "img3"
+    }
+  ]
+}

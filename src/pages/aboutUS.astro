@@ -1,146 +1,36 @@
 ---
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
+import "../styles/pages/aboutUs.css";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import SectionTitle from "../components/ui/SectionTitle.astro";
+import { aboutContent, metaContent } from "../data/content";
+
+const title = "Acerca de KO729 | KO729";
+const description = metaContent.pages.about.description;
+const keywords = metaContent.pages.about.keywords;
 ---
 
-<!doctype html>
-<html lang="es">
-  <head>
-    <!-- META DESCRIPTION -->
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content=" // PENDIENTE // " />
-    <meta name="keywords" content=" // PENDIENTE // " />
+<BaseLayout
+  title={title}
+  description={description}
+  keywords={keywords}
+  pageCss={[]}
+>
+  <SectionTitle title={aboutContent.title} />
 
-    <!-- ESTILOS -->
-    <link rel="stylesheet" href="/recursos/format.css" />
-    <link rel="stylesheet" href="/recursos/normalize.css" />
-    <link rel="stylesheet" href="/recursos/aboutUs.css" />
-
-    <!-- GOOGLE FONTS -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-
-    <!-- Josefin Sans (Cuerpos secundarios) -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@500&display=swap"
-      rel="stylesheet"
-    />
-
-    <!-- Open Sans -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@80,600&display=swap"
-      rel="stylesheet"
-    />
-
-    <!-- Roboto Flex -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz@8.144&display=swap"
-      rel="stylesheet"
-    />
-
-    <title>Acerca de KO729</title>
-  </head>
-
-  <body>
-    <Header />
-
-    <!-- SideNav para responsive (si header.js lo usa) -->
-    <nav id="sideNavBar">
-      <div class="close_bar_responsive_container">
-        <div class="close_nav_bar" id="closeNavBar">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke-width="1.5"
-            stroke="currentColor"
-            class="w-6 h-6 menu_close"
-          >
-            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
-          </svg>
-        </div>
-      </div>
-
-      <div class="nav_bar_container">
-        <div class="nav_container_responsive">
-          <a href="/index.html" class="nav_element">Inicio</a>
-        </div>
-        <div class="nav_container_responsive">
-          <a href="/ko729/desarrollos.html" class="nav_element">Desarrollos</a>
-        </div>
-        <div class="nav_container_responsive">
-          <a href="/ko729/construccion.html" class="nav_element">Construcción<br />a la medida</a>
-        </div>
-        <div class="nav_container_responsive">
-          <a href="/ko729/inversion.html" class="nav_element">Invierte con<br />Nosotros</a>
-        </div>
-        <div class="nav_container_responsive">
-          <a href="/ko729/aboutUs.html" class="nav_element nav_active">Acerca de<br />KO729</a>
-        </div>
-        <div class="nav_container_responsive">
-          <a href="/ko729/contact.html" class="nav_element">Contacto</a>
-        </div>
-      </div>
-    </nav>
-
-    <div class="main-content">
-      <!-- TÍTULO -->
-      <div class="tittle_container">
-        <div class="tittle_elementsContainer">
-          <div class="tittle_element">
-            <img src="/ko729/img/logos/letras.jpg" class="tittle_img" alt="logo" />
-          </div>
-          <div class="tittle">ACERCA DE KO729</div>
-        </div>
-      </div>
-
-      <!-- CONTENIDO -->
-      <div class="aboutContainer">
-        <div class="elementContainer">
-          <div class="textContainer">
-            <div class="tittleAbout">
-              ¿QUIÉNES SOMOS?
-            </div>
-            <div class="descriptionAbout">
-              Somos un despacho de arquitectura y construcción enfocado en el desarrollo de proyectos
-              inmobiliarios de alta calidad. Buscamos crear espacios funcionales, estéticos y duraderos,
-              cuidando cada detalle del proceso: desde el diseño, la planeación y la ejecución.
-            </div>
-
-            <div class="tittleAbout">
-              NUESTRO ENFOQUE
-            </div>
-            <div class="descriptionAbout">
-              Diseñamos y construimos con una visión integral: arquitectura + ingeniería. Nuestro objetivo
-              es acompañarte en todo el proceso para que el resultado sea exactamente lo que imaginaste,
-              con calidad, transparencia y una ejecución impecable.
-            </div>
-
-            <div class="tittleAbout">
-              NUESTROS VALORES
-            </div>
-            <div class="descriptionAbout">
-              - Calidad en cada etapa<br />
-              - Honestidad y claridad en el proceso<br />
-              - Compromiso con el tiempo y el presupuesto<br />
-              - Diseño funcional y atemporal<br />
-              - Atención personalizada
-            </div>
-          </div>
-        </div>
-
-        <div class="elementContainer">
-          <div class="imgContainer"></div>
-        </div>
+  <div class="aboutContainer">
+    <div class="elementContainer">
+      <div class="textContainer">
+        {aboutContent.sections.map((section) => (
+          <>
+            <div class="tittleAbout">{section.title}</div>
+            <div class="descriptionAbout" set:html={section.description} />
+          </>
+        ))}
       </div>
     </div>
 
-    <Footer />
-
-    <!-- FUNCIONES -->
-    <script src="/recursos/header.js"></script>
-    <script src="/recursos/funciones.js"></script>
-  </body>
-</html>
+    <div class="elementContainer">
+      <div class="imgContainer"></div>
+    </div>
+  </div>
+</BaseLayout>

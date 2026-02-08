@@ -1,0 +1,14 @@
+
+@import "../shared/cards.css";
+
+.img1 {
+    background-image: var(--asset-construccion-diseno-1);
+}
+
+.img2 {
+    background-image: var(--asset-construccion-construccion-1);
+}
+
+.img3 {
+    background-image: var(--asset-construccion-servicios);
+}

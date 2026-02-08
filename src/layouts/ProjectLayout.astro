@@ -1,0 +1,25 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+import SectionTitle from "../components/ui/SectionTitle.astro";
+
+interface Props {
+  title: string;
+  description?: string;
+  keywords?: string;
+  pageCss?: string[];
+  sectionTitle: string;
+}
+
+const {
+  title,
+  description = "",
+  keywords = "",
+  pageCss = [],
+  sectionTitle
+} = Astro.props;
+---
+
+<BaseLayout title={title} description={description} keywords={keywords} pageCss={pageCss}>
+  <SectionTitle title={sectionTitle} />
+  <slot />
+</BaseLayout>

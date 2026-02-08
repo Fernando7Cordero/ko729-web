@@ -1,0 +1,84 @@
+/* Estilos compartidos para secciones con texto + imagen */
+
+.sectionBlock {
+  display: flex;
+  width: min(92vw, 1320px);
+  align-items: center;
+  gap: clamp(1.6rem, 4vw, 3.2rem);
+}
+
+.sectionText {
+  width: 55%;
+  height: fit-content;
+  padding-left: clamp(0.6rem, 2.8vw, 2.6rem);
+  padding-right: clamp(0.6rem, 2.8vw, 2.6rem);
+}
+
+.sectionTitle {
+  display: flex;
+  justify-content: flex-start;
+  font-family: var(--Sora);
+  font-size: clamp(2.05rem, 3.8vw, 2.9rem);
+  font-weight: 600;
+  letter-spacing: 0.14rem;
+  text-transform: uppercase;
+}
+
+.sectionDescription {
+  padding-top: 1rem;
+  padding-bottom: 2rem;
+  font-family: var(--Manrope);
+  font-size: clamp(1.05rem, 1.7vw, 1.2rem);
+  line-height: 1.75;
+  color: rgba(217, 211, 199, 0.9);
+}
+
+.sectionImage {
+  width: 45%;
+  height: min(56vh, 560px);
+  min-height: 320px;
+  border-radius: 26px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+  overflow: hidden;
+  position: relative;
+  background-position: center;
+  background-size: cover;
+}
+
+.sectionImage::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(120deg, rgba(0, 0, 0, 0.2), transparent 55%);
+  pointer-events: none;
+}
+
+@media only screen and (max-width: 950px) {
+  .sectionBlock {
+    display: block;
+    width: 90%;
+    height: auto;
+  }
+
+  .sectionText {
+    width: 100%;
+  }
+
+  .sectionImage {
+    margin-top: 5vh;
+    margin-left: 10%;
+    margin-right: 10%;
+    width: 80%;
+    height: min(48vh, 420px);
+  }
+
+  .sectionDescription {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .deCo_button_container {
+    margin-top: 7%;
+  }
+}
