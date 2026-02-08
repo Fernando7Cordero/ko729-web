@@ -1,0 +1,75 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+
+const title = "Construcción a la medida | KO729";
+const description = " // PENDIENTE // ";
+const keywords = " // PENDIENTE // ";
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  keywords={keywords}
+  pageCss={["/recursos/construccion.css"]}
+>
+  <Header />
+
+  <div class="main-content">
+    <div class="tittle_container"> 
+      <div class="tittle_elementsContainer">
+        <div class="tittle_element">
+          <img src="/img/logos/letras.jpg" class="tittle_img" alt="logo" />
+        </div>
+        <div class="tittle">DESIGN &amp; CONSTRUCTION</div>
+      </div>
+    </div>
+
+    <div class="elementContainer">
+      <div class="textContainer">
+        <div class="textCenter">
+          <div class="tituloContainer">DISEÑO</div>
+          <div class="descripcionContainer">
+            Diseñamos espacios que reflejan tu personalidad y se adaptan a tu
+            estilo de vida a partir de los gustos y necesidades de los usuarios,
+            brindando el máximo confort y la mejor habitabilidad.
+          </div>
+        </div>
+      </div>
+      <div class="imgContainer img1"></div>
+    </div>
+
+    <div class="elementContainer">
+      <div class="textContainer">
+        <div class="textCenter">
+          <div class="tituloContainer">CONSTRUCCIÓN</div>
+          <div class="descripcionContainer">
+            Planificamos, ejecutamos y supervisamos las actividades necesarias
+            para la realización de las ideas desarrolladas en el diseño,
+            garantizando su materialización con una calidad de excelencia en
+            tiempos y costos óptimos.
+          </div>
+        </div>
+      </div>
+      <div class="imgContainer img2"></div>
+    </div>
+
+    <div class="elementContainer element3">
+      <div class="textContainer">
+        <div class="textCenter">
+          <div class="tituloContainer">SERVICIOS</div>
+          <div class="descripcionContainer descriptionServices">
+            - Construcción a la medida <br />
+            - Proyecto ejecutivo y arquitectonico <br />
+            - Remodelaciones <br />
+            - Interiorismo
+          </div>
+        </div>
+      </div>
+      <div class="imgContainer img3"></div>
+    </div>
+  </div>
+
+  <Footer />
+</BaseLayout>

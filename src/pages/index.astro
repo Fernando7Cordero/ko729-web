@@ -1,17 +1,105 @@
 ---
+import BaseLayout from "../layouts/BaseLayout.astro";
 
+const title = "KO729 | Inicio";
+const description = "Arquitectura, ingeniería y construcción en CDMX.";
+const keywords = "constructora, arquitectura, ingeniería, desarrollos, construcción, inversión";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout
+  title={title}
+  description={description}
+  keywords={keywords}
+  pageCss={["/recursos/index.css"]}
+>
+  <!-- CONTENIDO HOME -->
+  <main>
+    <!-- Banner principal -->
+    <div class="bannerIndex">
+      <img
+        class="imgBannerIndex"
+        id="imgBannerIndex"
+        src="/img/index/banner1.jpg"
+        alt="KO729 - Banner"
+      />
+      <div class="textoBannerIndex">
+        <div class="bannerText1">ARCHITECTURE +</div>
+        <div class="bannerText2">ENGINEERING</div>
+      </div>
+    </div>
+
+    <!-- Bloques principales -->
+    <div class="container">
+      <div class="mainIndex">
+        <!-- DESARROLLOS -->
+        <div class="mainIndexContenido">
+          <div class="titleMainIndex">DESARROLLOS</div>
+          <div class="descMainIndex">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit
+            repudiandae reprehenderit ut accusamus iusto eius, id dolorem fugit
+            consequuntur placeat.
+          </div>
+
+          <div class="btnMainIndex">
+            <a class="btnMainIndexLink" href="/desarrollos">Ver más</a>
+          </div>
+        </div>
+
+        <!-- CONSTRUCCIÓN A LA MEDIDA -->
+        <div class="mainIndexContenido">
+          <div class="titleMainIndex">CONSTRUCCIÓN A LA MEDIDA</div>
+          <div class="descMainIndex">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit
+            repudiandae reprehenderit ut accusamus iusto eius, id dolorem fugit
+            consequuntur placeat.
+          </div>
+
+          <div class="btnMainIndex">
+            <a class="btnMainIndexLink" href="/construccion">Ver más</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SERVICIOS -->
+    <div class="serviciosIndex">
+      <div class="titleServiciosIndex">SERVICIOS</div>
+      <div class="container">
+        <div class="serviciosCardIndex">
+          <!-- Inversión -->
+          <div class="serviciosCardIndexContenido">
+            <div class="serviciosCardIndexTitle">INVERSIÓN</div>
+            <div class="serviciosCardIndexDesc">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            </div>
+            <div class="btnMainIndex">
+              <a class="btnMainIndexLink" href="/inversion">Ver más</a>
+            </div>
+          </div>
+
+          <!-- Nosotros -->
+          <div class="serviciosCardIndexContenido">
+            <div class="serviciosCardIndexTitle">NOSOTROS</div>
+            <div class="serviciosCardIndexDesc">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            </div>
+            <div class="btnMainIndex">
+              <a class="btnMainIndexLink" href="/aboutUS">Ver más</a>
+            </div>
+          </div>
+
+          <!-- Contacto -->
+          <div class="serviciosCardIndexContenido">
+            <div class="serviciosCardIndexTitle">CONTACTO</div>
+            <div class="serviciosCardIndexDesc">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            </div>
+            <div class="btnMainIndex">
+              <a class="btnMainIndexLink" href="/contacto">Ver más</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</BaseLayout>

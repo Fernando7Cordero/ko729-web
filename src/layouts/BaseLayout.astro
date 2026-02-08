@@ -1,0 +1,46 @@
+---
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+
+interface Props {
+  title?: string;
+  description?: string;
+  keywords?: string;
+  pageCss?: string[];
+}
+
+const {
+  title = "KO729",
+  description = "",
+  keywords = "",
+  pageCss = []
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content={keywords} />
+
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="stylesheet" href="/recursos/normalize.css" />
+    <link rel="stylesheet" href="/recursos/format.css" />
+
+    {pageCss.map((href: string) => <link rel="stylesheet" href={href} />)}
+  </head>
+
+  <body>
+    <Header />
+    <main>
+      <slot />
+    </main>
+    <Footer />
+
+    <script src="/recursos/header.js" defer></script>
+    <script src="/recursos/funciones.js" defer></script>
+  </body>
+</html>

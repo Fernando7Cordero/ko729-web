@@ -1,0 +1,3087 @@
+﻿Project scan started on 02/07/2026 22:47:48
+Base folder: C:\Users\alexi\OneDrive\KO729\ko729-web
+Scanned roots: src public
+Allowed extensions: .html .css .js .astro .ts .tsx .json .scss .sass .less .md .mdx .yaml .yml .env .mjs .cjs .txt
+=======================================
+
+########################################
+ROOT: src
+########################################
+
+========================================
+FILE: src\components\Footer.astro
+========================================
+
+<footer class="footer">
+  <div class="footer_container">
+    <!-- Logo y slogan -->
+    <div class="footer_section">
+      <img src="/img/logos/logo.png" alt="KO729 Logo" class="footer_logo" />
+      <div class="footer_slogan">
+        ARCHITECTURE + ENGINEERING
+      </div>
+    </div>
+
+    <!-- Contacto -->
+    <div class="footer_section">
+      <div class="footer_title">CONTACTO</div>
+      <div class="footer_item">
+        <img src="/img/icons/mail.png" alt="Email" class="footer_icon" />
+        admin@ko729.com.mx
+      </div>
+      <div class="footer_item">
+        <img src="/img/icons/phone.png" alt="TelÃ©fono" class="footer_icon" />
+        5576324641
+      </div>
+    </div>
+
+    <!-- UbicaciÃ³n -->
+    <div class="footer_section">
+      <div class="footer_title">UBICACIÃ“N</div>
+      <div class="footer_item">
+        <img src="/img/icons/location.png" alt="UbicaciÃ³n" class="footer_icon" />
+        ConcepciÃ³n Beistegui 110,<br />
+        Col. Del Valle, CDMX
+      </div>
+    </div>
+
+    <!-- Redes -->
+    <div class="footer_section">
+      <div class="footer_title">REDES</div>
+      <div class="footer_item">
+        <img src="/img/icons/instagram.png" alt="Instagram" class="footer_icon" />
+        @ko729
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+========================================
+FILE: src\components\Header.astro
+========================================
+
+<header class="header">
+  <div class="header_container">
+    <!-- Logo -->
+    <div class="logo_container">
+      <a href="/">
+        <img src="/img/logos/logo.png" class="logo" alt="KO729 Logo" />
+      </a>
+    </div>
+
+    <!-- Navbar desktop -->
+    <nav class="nav_bar">
+      <div class="nav_container">
+        <a href="/" class="nav_element nav_active">Inicio</a>
+      </div>
+      <div class="nav_container">
+        <a href="/desarrollos" class="nav_element">Desarrollos</a>
+      </div>
+      <div class="nav_container">
+        <a href="/construccion" class="nav_element">ConstrucciÃ³n<br />a la medida</a>
+      </div>
+      <div class="nav_container">
+        <a href="/inversion" class="nav_element">Invierte con<br />Nosotros</a>
+      </div>
+      <div class="nav_container">
+        <a href="/acerca" class="nav_element">Acerca de<br />KO729</a>
+      </div>
+      <div class="nav_container">
+        <a href="/contacto" class="nav_element">Contacto</a>
+      </div>
+    </nav>
+
+    <!-- Menu responsive button -->
+    <div class="menu_responsive" id="menuResponsive">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        class="w-6 h-6 menu_icon"
+      >
+        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+      </svg>
+    </div>
+  </div>
+
+  <!-- Sidebar responsive -->
+  <nav id="sideNavBar">
+    <div class="close_bar_responsive_container">
+      <div class="close_nav_bar" id="closeNavBar">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="w-6 h-6 menu_close"
+        >
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+        </svg>
+      </div>
+    </div>
+
+    <div class="nav_bar_container">
+      <div class="nav_container_responsive">
+        <a href="/" class="nav_element">Inicio</a>
+      </div>
+      <div class="nav_container_responsive">
+        <a href="/desarrollos" class="nav_element">Desarrollos</a>
+      </div>
+      <div class="nav_container_responsive">
+        <a href="/construccion" class="nav_element">ConstrucciÃ³n<br />a la medida</a>
+      </div>
+      <div class="nav_container_responsive">
+        <a href="/inversion" class="nav_element">Invierte con<br />Nosotros</a>
+      </div>
+      <div class="nav_container_responsive">
+        <a href="/acerca" class="nav_element">Acerca de<br />KO729</a>
+      </div>
+      <div class="nav_container_responsive">
+        <a href="/contacto" class="nav_element">Contacto</a>
+      </div>
+    </div>
+  </nav>
+</header>
+
+
+
+
+========================================
+FILE: src\layouts\BaseLayout.astro
+========================================
+
+---
+type Props = {
+  /** TÃ­tulo del documento */
+  title?: string;
+  /** Meta description */
+  description?: string;
+  /** Meta keywords */
+  keywords?: string;
+  /**
+   * CSS extra por pÃ¡gina (rutas desde /public, ej: "/recursos/index.css")
+   * Se inyecta como <link rel="stylesheet" href="...">
+   */
+  pageCss?: string[];
+  /**
+   * Scripts extra por pÃ¡gina (rutas desde /public, ej: "/recursos/otra-cosa.js")
+   * Se inyecta como <script src="..." defer>
+   */
+  pageScripts?: string[];
+};
+
+const {
+  title = "KO729",
+  description = " // PENDIENTE // ",
+  keywords = " // PENDIENTE // ",
+  pageCss = [],
+  pageScripts = [],
+} = Astro.props as Props;
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <!-- META -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta name="keywords" content={keywords} />
+
+    <title>{title}</title>
+
+    <!-- GOOGLE FONTS (boceto) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Josefin Sans -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Open Sans -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@80,600&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Roboto Flex -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz@8..144&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- CSS BASE (boceto) -->
+    <!-- OJO: asume que ya copiaste recursos a /public/recursos -->
+    <link rel="stylesheet" href="/recursos/format.css" />
+    <link rel="stylesheet" href="/recursos/normalize.css" />
+
+    <!-- CSS POR PÃGINA (boceto) -->
+    {pageCss.map((href) => (
+      <link rel="stylesheet" href={href} />
+    ))}
+
+    <!-- Permite extender head desde pÃ¡ginas si lo necesitas -->
+    <slot name="head" />
+  </head>
+
+  <body>
+    <slot />
+
+    <!-- JS BASE (boceto) -->
+    <!-- header.js: menÃº lateral / responsive -->
+    <script src="/recursos/header.js" defer></script>
+    <!-- funciones.js: banners/funciones generales -->
+    <script src="/recursos/funciones.js" defer></script>
+
+    <!-- JS POR PÃGINA -->
+    {pageScripts.map((src) => (
+      <script src={src} defer></script>
+    ))}
+  </body>
+</html>
+
+
+
+
+========================================
+FILE: src\pages\aboutUS.astro
+========================================
+
+---
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <!-- META DESCRIPTION -->
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content=" // PENDIENTE // " />
+    <meta name="keywords" content=" // PENDIENTE // " />
+
+    <!-- ESTILOS -->
+    <link rel="stylesheet" href="/recursos/format.css" />
+    <link rel="stylesheet" href="/recursos/normalize.css" />
+    <link rel="stylesheet" href="/recursos/aboutUs.css" />
+
+    <!-- GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Josefin Sans (Cuerpos secundarios) -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@500&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Open Sans -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@80,600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Roboto Flex -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz@8.144&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Acerca de KO729</title>
+  </head>
+
+  <body>
+    <Header />
+
+    <!-- SideNav para responsive (si header.js lo usa) -->
+    <nav id="sideNavBar">
+      <div class="close_bar_responsive_container">
+        <div class="close_nav_bar" id="closeNavBar">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="w-6 h-6 menu_close"
+          >
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+          </svg>
+        </div>
+      </div>
+
+      <div class="nav_bar_container">
+        <div class="nav_container_responsive">
+          <a href="/index.html" class="nav_element">Inicio</a>
+        </div>
+        <div class="nav_container_responsive">
+          <a href="/ko729/desarrollos.html" class="nav_element">Desarrollos</a>
+        </div>
+        <div class="nav_container_responsive">
+          <a href="/ko729/construccion.html" class="nav_element">ConstrucciÃ³n<br />a la medida</a>
+        </div>
+        <div class="nav_container_responsive">
+          <a href="/ko729/inversion.html" class="nav_element">Invierte con<br />Nosotros</a>
+        </div>
+        <div class="nav_container_responsive">
+          <a href="/ko729/aboutUs.html" class="nav_element nav_active">Acerca de<br />KO729</a>
+        </div>
+        <div class="nav_container_responsive">
+          <a href="/ko729/contact.html" class="nav_element">Contacto</a>
+        </div>
+      </div>
+    </nav>
+
+    <div class="main-content">
+      <!-- TÃTULO -->
+      <div class="tittle_container">
+        <div class="tittle_elementsContainer">
+          <div class="tittle_element">
+            <img src="/ko729/img/logos/letras.jpg" class="tittle_img" alt="logo" />
+          </div>
+          <div class="tittle">ACERCA DE KO729</div>
+        </div>
+      </div>
+
+      <!-- CONTENIDO -->
+      <div class="aboutContainer">
+        <div class="elementContainer">
+          <div class="textContainer">
+            <div class="tittleAbout">
+              Â¿QUIÃ‰NES SOMOS?
+            </div>
+            <div class="descriptionAbout">
+              Somos un despacho de arquitectura y construcciÃ³n enfocado en el desarrollo de proyectos
+              inmobiliarios de alta calidad. Buscamos crear espacios funcionales, estÃ©ticos y duraderos,
+              cuidando cada detalle del proceso: desde el diseÃ±o, la planeaciÃ³n y la ejecuciÃ³n.
+            </div>
+
+            <div class="tittleAbout">
+              NUESTRO ENFOQUE
+            </div>
+            <div class="descriptionAbout">
+              DiseÃ±amos y construimos con una visiÃ³n integral: arquitectura + ingenierÃ­a. Nuestro objetivo
+              es acompaÃ±arte en todo el proceso para que el resultado sea exactamente lo que imaginaste,
+              con calidad, transparencia y una ejecuciÃ³n impecable.
+            </div>
+
+            <div class="tittleAbout">
+              NUESTROS VALORES
+            </div>
+            <div class="descriptionAbout">
+              - Calidad en cada etapa<br />
+              - Honestidad y claridad en el proceso<br />
+              - Compromiso con el tiempo y el presupuesto<br />
+              - DiseÃ±o funcional y atemporal<br />
+              - AtenciÃ³n personalizada
+            </div>
+          </div>
+        </div>
+
+        <div class="elementContainer">
+          <div class="imgContainer"></div>
+        </div>
+      </div>
+    </div>
+
+    <Footer />
+
+    <!-- FUNCIONES -->
+    <script src="/recursos/header.js"></script>
+    <script src="/recursos/funciones.js"></script>
+  </body>
+</html>
+
+
+
+
+========================================
+FILE: src\pages\construccion.astro
+========================================
+
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+
+const title = "ConstrucciÃ³n a la medida | KO729";
+const description = " // PENDIENTE // ";
+const keywords = " // PENDIENTE // ";
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  keywords={keywords}
+  pageCss={["/recursos/construccion.css"]}
+>
+  <Header />
+
+  <div class="main-content">
+    <div class="tittle_container"> 
+      <div class="tittle_elementsContainer">
+        <div class="tittle_element">
+          <img src="/img/logos/letras.jpg" class="tittle_img" alt="logo" />
+        </div>
+        <div class="tittle">DESIGN &amp; CONSTRUCTION</div>
+      </div>
+    </div>
+
+    <div class="elementContainer">
+      <div class="textContainer">
+        <div class="textCenter">
+          <div class="tituloContainer">DISEÃ‘O</div>
+          <div class="descripcionContainer">
+            DiseÃ±amos espacios que reflejan tu personalidad y se adaptan a tu
+            estilo de vida a partir de los gustos y necesidades de los usuarios,
+            brindando el mÃ¡ximo confort y la mejor habitabilidad.
+          </div>
+        </div>
+      </div>
+      <div class="imgContainer img1"></div>
+    </div>
+
+    <div class="elementContainer">
+      <div class="textContainer">
+        <div class="textCenter">
+          <div class="tituloContainer">CONSTRUCCIÃ“N</div>
+          <div class="descripcionContainer">
+            Planificamos, ejecutamos y supervisamos las actividades necesarias
+            para la realizaciÃ³n de las ideas desarrolladas en el diseÃ±o,
+            garantizando su materializaciÃ³n con una calidad de excelencia en
+            tiempos y costos Ã³ptimos.
+          </div>
+        </div>
+      </div>
+      <div class="imgContainer img2"></div>
+    </div>
+
+    <div class="elementContainer element3">
+      <div class="textContainer">
+        <div class="textCenter">
+          <div class="tituloContainer">SERVICIOS</div>
+          <div class="descripcionContainer descriptionServices">
+            - ConstrucciÃ³n a la medida <br />
+            - Proyecto ejecutivo y arquitectonico <br />
+            - Remodelaciones <br />
+            - Interiorismo
+          </div>
+        </div>
+      </div>
+      <div class="imgContainer img3"></div>
+    </div>
+  </div>
+
+  <Footer />
+</BaseLayout>
+
+
+
+
+========================================
+FILE: src\pages\contacto.astro
+========================================
+
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const pageTitle = "Contacto | KO729";
+const pageDescription = "// PENDIENTE //";
+const pageKeywords = "// PENDIENTE //";
+
+// CSS del boceto (ya debe existir en /public/recursos/)
+const pageCss = ["/recursos/contact.css"];
+
+<BaseLayout
+  title={pageTitle}
+  description={pageDescription}
+  keywords={pageKeywords}
+  pageCss={pageCss}
+>
+  <div class="main-content">
+    <div class="tittle_container">
+      <div class="tittle_elementsContainer">
+        <div class="tittle_element">
+          <img src="/img/logos/letras.jpg" class="tittle_img" alt="logo" />
+        </div>
+        <div class="tittle">CONTACTO</div>
+      </div>
+    </div>
+
+    <div class="contactContainer">
+      <div class="contactBox text">
+        <div class="textElements">
+          <div class="speechContainer">Â¡ContÃ¡ctanos y creemos tu hogar perfecto!</div>
+
+          <div class="datosContainer">
+            <div class="elementContainer">
+              <a href="">
+                <img src="/img/icon/instagram.svg" alt="instagram" class="footer_icon" />
+                Instagram
+              </a>
+            </div>
+
+            <div class="elementContainer">
+              <a href="">
+                <img src="/img/icon/whatsapp.svg" alt="whatsapp" class="footer_icon" />
+                Whatsapp
+              </a>
+            </div>
+
+            <div class="elementContainer">
+              <a href="">
+                <img src="/img/icon/mail.svg" alt="mail" class="footer_icon" />
+                Email
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="contactBox image">
+        <div class="contactImg"></div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+
+
+
+
+========================================
+FILE: src\pages\index.astro
+========================================
+
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+
+const title = "KO729 | Inicio";
+const description = " // PENDIENTE // ";
+const keywords = " // PENDIENTE // ";
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  keywords={keywords}
+  pageCss={["/recursos/index.css"]}
+>
+  <Header />
+
+  <!-- CONTENIDO HOME (boceto) -->
+  <main>
+    <!-- Banner principal -->
+    <div class="bannerIndex">
+      <img
+        class="imgBannerIndex"
+        id="imgBannerIndex"
+        src="/img/index/banner1.jpg"
+        alt="KO729 - Banner"
+      />
+      <div class="textoBannerIndex">
+        <div class="bannerText1">ARCHITECTURE +</div>
+        <div class="bannerText2">ENGINEERING</div>
+      </div>
+    </div>
+
+    <!-- Bloques principales -->
+    <div class="container">
+      <div class="mainIndex">
+        <!-- DESARROLLOS -->
+        <div class="mainIndexContenido">
+          <div class="titleMainIndex">DESARROLLOS</div>
+          <div class="descMainIndex">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit
+            repudiandae reprehenderit ut accusamus iusto eius, id dolorem fugit
+            consequuntur placeat.
+          </div>
+
+          <div class="btnMainIndex">
+            <a class="btnMainIndexLink" href="/desarrollos">Ver mÃ¡s</a>
+          </div>
+        </div>
+
+        <!-- CONSTRUCCIÃ“N A LA MEDIDA -->
+        <div class="mainIndexContenido">
+          <div class="titleMainIndex">CONSTRUCCIÃ“N A LA MEDIDA</div>
+          <div class="descMainIndex">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit
+            repudiandae reprehenderit ut accusamus iusto eius, id dolorem fugit
+            consequuntur placeat.
+          </div>
+
+          <div class="btnMainIndex">
+            <a class="btnMainIndexLink" href="/construccion">Ver mÃ¡s</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SERVICIOS -->
+    <div class="serviciosIndex">
+      <div class="titleServiciosIndex">SERVICIOS</div>
+      <div class="container">
+        <div class="serviciosCardIndex">
+          <!-- InversiÃ³n -->
+          <div class="serviciosCardIndexContenido">
+            <div class="serviciosCardIndexTitle">INVERSIÃ“N</div>
+            <div class="serviciosCardIndexDesc">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            </div>
+            <div class="btnMainIndex">
+              <a class="btnMainIndexLink" href="/inversion">Ver mÃ¡s</a>
+            </div>
+          </div>
+
+          <!-- Nosotros -->
+          <div class="serviciosCardIndexContenido">
+            <div class="serviciosCardIndexTitle">NOSOTROS</div>
+            <div class="serviciosCardIndexDesc">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            </div>
+            <div class="btnMainIndex">
+              <a class="btnMainIndexLink" href="/acerca">Ver mÃ¡s</a>
+            </div>
+          </div>
+
+          <!-- Contacto -->
+          <div class="serviciosCardIndexContenido">
+            <div class="serviciosCardIndexTitle">CONTACTO</div>
+            <div class="serviciosCardIndexDesc">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            </div>
+            <div class="btnMainIndex">
+              <a class="btnMainIndexLink" href="/contacto">Ver mÃ¡s</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <Footer />
+</BaseLayout>
+
+
+
+
+========================================
+FILE: src\pages\inversion.astro
+========================================
+
+---
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <!-- META DESCRIPTION -->
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content=" // PENDIENTE // " />
+    <meta name="keywords" content=" // PENDIENTE // " />
+
+    <!-- ESTILOS -->
+    <link rel="stylesheet" href="/recursos/format.css" />
+    <link rel="stylesheet" href="/recursos/normalize.css" />
+    <link rel="stylesheet" href="/recursos/inversion.css" />
+
+    <!-- GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Josefin Sans (Cuerpos secundarios) -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@500&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Open Sans -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@80,600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Roboto Flex -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz@8.144&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Invierte con Nosotros</title>
+  </head>
+
+  <body>
+    <Header />
+
+    <!-- (Si tu header.js maneja el menÃº responsive, esto debe existir) -->
+    <nav id="sideNavBar">
+      <div class="close_bar_responsive_container">
+        <div class="close_nav_bar" id="closeNavBar">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="w-6 h-6 menu_close"
+          >
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+          </svg>
+        </div>
+      </div>
+
+      <div class="nav_bar_container">
+        <div class="nav_container_responsive">
+          <a href="/index.html" class="nav_element">Inicio</a>
+        </div>
+        <div class="nav_container_responsive">
+          <a href="/ko729/desarrollos.html" class="nav_element">Desarrollos</a>
+        </div>
+        <div class="nav_container_responsive">
+          <a href="/ko729/construccion.html" class="nav_element">ConstrucciÃ³n<br />a la medida</a>
+        </div>
+        <div class="nav_container_responsive">
+          <a href="/ko729/inversion.html" class="nav_element nav_active"
+            >Invierte con<br />Nosotros</a
+          >
+        </div>
+        <div class="nav_container_responsive">
+          <a href="/ko729/aboutUs.html" class="nav_element">Acerca de<br />KO729</a>
+        </div>
+        <div class="nav_container_responsive">
+          <a href="/ko729/contact.html" class="nav_element">Contacto</a>
+        </div>
+      </div>
+    </nav>
+
+    <div class="main-content">
+      <!-- TÃTULO -->
+      <div class="tittle_container">
+        <div class="tittle_elementsContainer">
+          <div class="tittle_element">
+            <img src="/ko729/img/logos/letras.jpg" class="tittle_img" alt="logo" />
+          </div>
+          <div class="tittle">INVIERTE CON NOSOTROS</div>
+        </div>
+      </div>
+
+      <!-- CONTENIDO (segÃºn el boceto) -->
+      <div class="inversionContainer">
+        <div class="elementContainer">
+          <div class="textContainer">
+            <div class="textCenter">
+              <div class="tituloContainer">TERRENOS</div>
+              <div class="descripcionContainer">
+                Aporta tu terreno para el desarrollo de uno de nuestros proyectos y te
+                ofrecemos una utilidad por tu terreno, tomando su valor como inversiÃ³n.
+                Puedes cobrar tu utilidad con dinero o con los departamentos construidos.
+                Obtienes un porcentaje de participaciÃ³n dentro del proyecto.
+              </div>
+            </div>
+          </div>
+
+          <div class="imgContainer img1"></div>
+        </div>
+
+        <div class="elementContainer">
+          <div class="textContainer">
+            <div class="textCenter">
+              <div class="tituloContainer">CAPITAL</div>
+              <div class="descripcionContainer">
+                Coloca tu dinero en uno de nuestros desarrollos, con el respaldo de un bien
+                inmueble. ObtÃ©n rendimientos a partir de 26% global y 17% anual. Puedes cobrar
+                tu utilidad con dinero o con los departamentos construidos. Obtienes un
+                porcentaje de participaciÃ³n dentro del proyecto.
+              </div>
+            </div>
+          </div>
+
+          <div class="imgContainer img2"></div>
+        </div>
+      </div>
+    </div>
+
+    <Footer />
+
+    <!-- FUNCIONES -->
+    <script src="/recursos/header.js"></script>
+    <script src="/recursos/funciones.js"></script>
+  </body>
+</html>
+
+
+
+
+########################################
+ROOT: public
+########################################
+
+========================================
+FILE: public\recursos\aboutUs.css
+========================================
+
+
+
+.aboutContainer {
+    display: flex;
+
+    width: 100vw;
+    min-height: 70vh;
+
+    padding-top: 5vh;
+    padding-bottom: 5vh;
+    padding-left: 5vw;
+    padding-right: 5vw;
+
+    background-color: var(--green-main);
+
+    color: var(--logo);
+}
+
+.elementContainer {
+
+    width: 50%;
+
+}
+
+.textContainer {
+
+    /*centrar padding-top: 10%; */
+    padding-bottom: 10%;
+
+    padding-left: 5%;
+    padding-right: 5%;
+
+    font-family: sans-serif;
+
+    text-align: justify;
+}
+
+.tittleContainer {
+    font-weight: 900;
+
+    font-family: var(--JosefinSans);
+
+    font-size: 4vh;
+}
+
+.textElement {
+    padding-top: 3%;
+
+    font-size: 2.5vh;
+}  
+
+.imageContainer {
+
+    /* background-image: url(../img/desarrollos/yacatas.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat; */
+
+    border: solid 1px;
+}
+
+.aboutContainerResponsive {
+    display: none;
+}
+
+@media only screen and (max-width: 800px) {
+
+
+    .aboutContainerResponsive {
+        display: block;
+    }
+
+    .aboutContainer {
+        display: none;
+    }
+
+    
+.aboutContainerResponsive {
+    display: block;
+
+    min-height: 100vh;
+
+    padding-bottom: 10vh;
+    padding-left: 5vw;
+    padding-right: 5vw;
+
+    background-color: var(--green-main);
+    color: var(--logo);
+}
+
+.elementContainerResponsive {
+
+    width: 100%;
+
+
+}
+
+.textContainerResponsive {
+
+    padding-top: 10%;
+    padding-bottom: 10%;
+
+    padding-left: 5%;
+    padding-right: 5%;
+
+    text-align: center;
+}
+
+.tittleContainerResponsive {
+    font-weight: 900;
+
+    font-family: var(--JosefinSans);
+
+    font-size: 4vh;
+}
+
+.textElementResponsive {
+    padding-top: 3%;
+
+    font-size: 2.5vh;
+
+    font-family: sans-serif;
+    text-align: justify;
+}  
+
+.imageContainerResponsive {
+
+    height: 50vh;
+
+    /* background-image: url(../img/desarrollos/yacatas.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat; */
+
+    border: solid 1px;
+
+}
+
+
+}
+
+
+
+========================================
+FILE: public\recursos\construccion.css
+========================================
+
+
+/* Estilos de recuadros DiseÃ±o y construccion */
+
+
+
+.elementContainer {
+    display: flex;
+
+    justify-content: center;
+
+    padding-top: 6vh;
+
+    width: 100vw;
+    min-height: 30vh;
+
+    background-color: var(--green-main);
+    color: var(--logo);
+
+
+}
+
+.textContainer {
+    display: flex;
+
+    justify-content: center;
+    align-items: start;
+
+    width: 30vw;
+    min-height: 100%;
+
+
+}
+
+.textCenter {
+    height: fit-content;
+    width: 90%;
+
+}
+
+.tituloContainer {
+
+    font-family: var(--JosefinSans);
+    font-weight: 900;
+    font-size: 4vh;
+
+}
+
+.descripcionContainer {
+
+    padding-top: 1vh;
+
+    font-family: sans-serif;
+    font-size: 2vh;
+    font-weight: 100;
+
+    text-align: justify;
+
+}
+
+.imgContainer {
+    display: flex;
+
+    width: 40vw;
+    min-height: 40vh;
+
+    /* margin-top: 4vh; */
+    margin-bottom: 4vh;
+
+    margin-left: 4vw;
+    margin-right: 4vw;
+
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+}
+
+
+
+.img1 {
+    background-image: url(../img/construccion/diseÃ±o1.jpg);
+    
+}
+
+.img2 {
+
+    background-image: url(../img/construccion/construccion1.jpg);
+}
+
+.img3 {
+
+    background-image: url(../img/construccion/servicios.jpg);
+}
+
+
+@media only screen and (max-width: 1200px) {
+
+    .imgContainer {
+        width: 50vw;
+    }
+
+}
+
+
+
+@media only screen and (max-width: 950px) {
+
+    .elementContainer {
+
+        display: block;
+
+    
+        padding-bottom: 4vh;
+       
+
+    }
+
+            
+    .textContainer {
+        display: flex;
+
+        width: 100%;
+        min-height: 20vh;
+
+        text-align: justify;
+
+        justify-content: center;
+        align-items: center;
+    
+    
+    } 
+
+    .textCenter {
+        width: 70%;
+    }
+
+    .imgContainer {
+        display: flex;
+    
+        width: 60vw;
+        min-height: 40vh;
+    
+        margin-top: 2vh;
+        margin-bottom: 0vh;
+    
+        margin-left: 20vw;
+        margin-right: 20vw;
+    
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+    
+    }
+
+    .tituloContainer {
+
+        padding-top: 5vh;
+
+        text-align: center;
+
+        font-family: var(--JosefinSans);
+        font-weight: 900;
+        font-size: 4vh;
+    
+    }
+    
+    .descripcionContainer {
+    
+        padding-top: 1vh;
+    
+        font-family: sans-serif;
+        font-size: 2vh;
+        font-weight: 100;
+    
+    }
+
+    .descriptionServices {
+        width: 70%;
+
+        margin: auto;
+
+    }
+    
+
+    
+
+   
+}
+
+@media only screen and (max-width: 650px) {
+           
+    .textContainer {
+        display: flex;
+
+        width: 100%;
+        min-height: 20vh;
+
+
+        text-align: justify;
+
+        justify-content: center;
+        align-items: center;
+    
+    
+    } 
+
+    .textCenter {
+        width: 90%;
+    }
+
+    .imgContainer {
+        display: flex;
+    
+        width: 90vw;
+        min-height: 40vh;
+    
+        margin-top: 2vh;
+        margin-bottom: 0vh;
+    
+        margin-left: 5vw;
+        margin-right: 5vw;
+    
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+    
+    }
+
+    .descriptionServices {
+        width: 80%; 
+    
+    }
+    
+}
+
+
+
+
+========================================
+FILE: public\recursos\contact.css
+========================================
+
+body {
+    min-height:0;
+}
+
+.contactContainer {
+
+    display: flex;
+
+    width: 100vw;
+    min-height: 30vh;
+
+    padding-bottom: 25vh;
+    padding-top: 10vh;
+
+    background-color: var(--green-main);
+    color: var(--logo);
+
+}
+
+.contactBox {
+    display: flex;
+    
+    width: 50vw;
+
+
+
+}
+
+.text {
+    justify-content: end;
+    align-items: center;
+
+    font-family: var(--JosefinSans);
+
+    padding-right: 5vw;
+    padding-left: 5vw;
+}
+
+.text a {
+    display: flex;
+
+    align-items: center;
+    text-decoration: none;
+
+
+    color: var(--logo);
+
+    font-weight: 900;
+
+}
+
+.text a img {
+
+    height: 5vh;
+
+    padding-right: .5vw;
+}
+
+.speechContainer {
+    font-weight: 900;
+
+    font-size: 2.5vh;
+
+    padding-bottom: 3vh;
+}
+
+.elementContainer {
+    padding-bottom: 2vh;
+}
+
+.image {
+    justify-content: start;
+
+    padding-left: 5vw;
+
+}
+
+.contactImg {
+
+    min-width: 250px;
+    width: 50%;
+    height: 100%;
+
+    border: solid 1px;    
+}
+
+
+@media only screen and (max-width: 600px) {
+
+    
+    .contactContainer {
+
+        display: block;
+    
+        width: 100vw;
+        min-height: 70vh;
+    
+    
+    }
+    
+    .contactBox {
+        display: flex;
+        
+        width: 100vw;
+    
+    
+    }
+    
+    .text {
+        justify-content: center;
+    
+    
+    }
+
+    .image {
+        justify-content: center;
+
+        padding-top: 5vh;
+
+        padding-left: 0;
+    
+    }
+    
+    .contactImg {
+    
+        min-width: 250px;
+        width: 70%;
+        height: 30vh;
+    
+        border: solid 1px;    
+    }
+    
+}
+
+
+
+
+========================================
+FILE: public\recursos\desarrollos.css
+========================================
+
+
+/* ESTILOS PARA ELEMENTO DE DESARROLLO */
+
+
+
+.desarrollosContainer {
+
+    width: 100vw;
+    
+    padding-top: 5vh;
+    padding-bottom: 5vh;
+
+    padding-left: 10vw;
+    padding-right: 10vw;
+
+    background-color: var(--green-main);
+    color: var(--logo);
+}
+
+.desarrolloContainer {
+    display: flex;
+
+    min-height: 70vh;
+    width: 100%;
+
+    
+    
+}
+
+.desarrolloText {
+    display: block;
+
+    width: 60%;
+    min-height: 100%;
+
+    /* 
+    centrar
+    padding-top: 5%; */
+    padding-bottom: 5%;
+
+
+}
+
+
+.desarrolloImg {
+    display: flex;
+
+    width: 40%;
+    min-height: 100%;
+
+    background-image: url(../img/desarrollos/yacatas.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+.desarrolloTittle {
+    display: flex;
+    
+    width: 100%;
+
+    justify-content: center;
+
+    font-size: 4vh;
+    font-family: var(--JosefinSans);
+
+    font-weight:900;
+
+}
+
+.desarrolloDescription {
+
+    width: 100%;
+
+    text-align: center;
+
+    padding-left: 10%;
+    padding-right: 10%;
+
+    padding-top: 5vh;
+    padding-bottom: 10vh;
+
+    
+    font-size: 2.5vh;
+    font-family: sans-serif;
+
+    text-align: justify;
+
+}
+
+
+.deCo_button_container {
+    display: flex;
+    
+    width: 100%;
+
+    align-items: center;
+    justify-content: center;
+
+    margin-top: 3vh;
+}
+
+
+.deCo_button {
+    
+    font-size: 2vh;
+    padding: 1vh;
+
+    font-family:var(--JosefinSans);
+    font-weight: 100;
+
+    text-decoration: none;
+    color: var(--logo);
+
+    transition: .5s all;
+
+    border: solid 1px;
+
+}
+
+.deCo_button_container :hover {
+
+    background-color: var(--logo);
+    color: var(--green-main);
+}
+
+
+
+/* ESTILOS RESPONSIVE PARA DESARROLLOS */
+
+@media only screen and (max-width: 1500px) {
+
+    
+.desarrolloText {
+    width: 50%;
+
+}
+
+
+.desarrolloImg {
+    width: 50%;
+
+}
+
+}
+
+
+@media only screen and (max-width: 1000px) {
+
+    
+    .desarrollosContainer {
+        min-height: 100vh;
+
+        width: 100vw;
+        
+        
+
+    }
+    
+    .desarrolloContainer {
+        display: block;
+
+    }
+
+
+    .desarrolloText {
+        width: 100%;
+
+        border-bottom: solid 1px;
+    
+    }
+    
+    .desarrolloDescription {
+        padding-top: 5vh;
+        padding-bottom: 5vh;
+
+        padding-left: 0%;
+        padding-right: 0%;
+
+    }
+    
+    .desarrolloImg {
+        width: 100%;
+
+        height: 70vh;
+    
+    }
+
+   
+    
+
+}
+
+
+
+
+
+========================================
+FILE: public\recursos\format.css
+========================================
+
+/* ELEMENTOS GLOBALES */
+
+:root {
+    --green-main: #444b3c;
+    --logo: #d9d3c7;
+    --contrast: #f3d279;
+
+    --header-height: 10vh;
+
+    /* Fuentes */
+
+    --JosefinSans:'Josefin Sans', sans-serif;
+    --OpenSans: "Open Sans";
+    --RobotoFlex: 'Roboto Flex', sans-serif;
+
+}
+
+body {
+    overflow-x: hidden;
+    background-color: var(--logo);
+}
+
+.main-content {
+    width: 100vw;
+    background-color: var(--logo);
+
+    min-height: 100vh;
+    height: auto;
+}
+
+
+/* Header */
+
+header {
+    display: flex;
+
+    position: fixed;
+    z-index: 9;
+
+    width: 100vw;
+    height: var(--header-height);
+
+    background-color: var(--green-main);
+    box-shadow: #000000 0px 0px 20px;
+
+    transition: all .5s;
+
+
+}
+
+.logo_container {
+    display: flex;
+
+    width: 25%;
+    height: 100%;
+
+    justify-content: center;
+    align-items: center;
+
+}
+
+.logo_header {
+    height: 100%;
+}
+
+.logo_header img {
+    height: 100%;
+}
+
+.nav_bar {
+    display: flex;
+
+    width: 75%;
+    height: 100%;
+
+}
+
+.nav_container {
+    display: flex;
+    flex: 1;
+    
+    align-items: center;
+    justify-content: center;
+    text-align: center; 
+
+}
+
+.nav_container a {
+    font-size: 1.5vh;
+    font-weight: bold;
+
+    font-family: sans-serif;
+    text-decoration: none;
+    color: var(--logo);
+
+    transition: all 0.3s ease;
+
+}
+
+.nav_container a:hover {
+    color: var(--contrast);
+    
+}
+
+.nav_active {
+    color: var(--contrast) !important;
+}
+
+.nav_bar_responsive, nav {
+    display: none;
+}
+
+/* Estilos de Header RESPONSIVE */
+
+@media only screen and (max-width: 900px) {
+
+    .nav_bar {
+        display: none;
+    }
+
+    .logo_container {
+        width: 100%;
+    }
+
+    .nav_bar_responsive {
+        display: flex;
+
+        width: 20%;
+        height: 100%;
+
+        justify-content: center;
+        align-items: center;
+
+        position: absolute;
+
+        margin-left: 80%;
+
+        color: var(--logo);
+
+    }
+
+    .menu_bars {
+        width: 50%;
+    }
+
+
+    /* Estilos para barra de navegacion lateral */
+
+    nav {
+        display: block;
+        position: fixed;
+
+        z-index: 10;
+
+        width: 100vw;
+        height: 100vh;
+
+        background-color: var(--green-main);
+        
+        color:var(--logo);
+
+        left: 100vw;
+
+        transition: .5s all;
+
+    }
+
+    .close_bar_responsive_container {
+        display: flex;
+
+        justify-content: right;
+
+        width: 100%;
+        height: var(--header-height);
+
+    }
+
+    .close_nav_bar {
+        display: flex;
+
+        width: 20%;
+        height: 100%;
+
+        justify-content: center;
+        align-items: center;
+
+
+
+    }
+
+    
+
+    .menu_close {
+       width: 60%;
+    }
+
+    .nav_bar_container {
+        display: block;
+
+        width: 100vw;
+        height: calc(100vh - var(--header-height));
+
+    }
+
+    .nav_container_responsive {
+        display: flex;
+
+        width: 100%;
+        height: 15%;
+
+        justify-content: center;
+        align-items: center;
+
+        font-family: "Open Sans";
+        
+
+    }
+
+    .nav_element {
+        text-decoration: none;
+        text-align: center;
+        color: var(--logo);
+
+        font-size: 125%;
+
+    }
+
+
+    }
+
+/* Redimesiona el header dependiendo de height */
+
+    @media only screen and (max-height: 700px) {
+
+    :root {
+        --header-height: 70px;
+
+    }
+}
+
+/* Barra de navegacion en caso de movil en formato horizontal */
+
+@media only screen and (max-height: 520px) {
+
+    .close_bar_responsive_container {
+        position:absolute;
+
+        height: var(--header-height);
+        width: 20vw;
+
+        margin-left: 80vw;
+
+
+    }
+
+    .close_nav_bar {
+        
+        width: 100%;
+
+    }
+    
+    .nav_bar_container {
+        height: 100vh;
+    }
+    
+    .nav_container_responsive {
+        height: 16%;
+    }
+
+}
+
+/* Estilos para Footer */
+
+footer {
+    display: flex;
+    overflow: hidden;
+
+    width: 100vw;
+
+    min-height: 200px;
+    height: 20vh;
+
+    background-color: var(--logo);
+    color: var(--green-main);
+
+    box-shadow: #000000 0px 0px 20px;
+
+    
+}
+
+.footer_container {
+    display: block;
+    flex: 1;
+
+    height: 100%;
+
+}
+
+.logo_footer {
+    display: flex;
+
+    width: 100%;
+    height: 100%;
+
+    justify-content: center;
+    align-items: center;
+
+}
+
+.logo_footer img {
+    height: 70%;
+
+}
+
+
+.footer_socialMedia {
+    display: flex;
+
+    width: 100%;
+    height: 50%;
+
+    padding-left: 20%;
+
+    
+}
+
+.socialMediaUp {
+
+    align-items:end;
+
+    padding-bottom: 10px;
+
+}
+
+.socialMediaBottom {
+
+    align-items:start;
+
+    padding-top: 10px;
+}
+
+
+
+.footer_socialMedia a {
+    display: flex;
+
+    height: 30%;
+
+    text-decoration: none;
+
+    color: var(--green-main);
+
+}
+
+.footer_icon {
+    height: 100%;
+}
+
+.footer_socialMedia a div {
+    display: flex;
+
+    height: 100%;
+
+    align-items: center;
+
+    font-family: sans-serif;
+    font-weight: 100;
+    font-size: 100%;
+
+    padding-left: 5px;
+    padding-right: 5px;
+
+
+}
+
+.footer_KO729 {
+    display: flex;
+
+    justify-content: center;
+    align-items: end;
+
+    width: 100%;
+    height: 60%;
+
+    padding-top: 5vh;
+
+    padding-bottom: 10px;
+}
+
+.footer_KO729 img {
+    height: 120%;
+}
+
+.footer_AE {
+    display: flex;
+
+    width: 100%;
+    height: 40%;
+
+    justify-content: center;
+    text-align: center;
+
+    font-size: 1.5vh;
+    font-weight: 900;
+
+    font-family: var(--JosefinSans);
+
+}
+
+/* Estilos FOOTER RESPONSIVE */
+@media only screen and (max-width: 900px) {
+    
+    footer {
+        display: block;
+
+        height: 80vh;
+    }
+
+    .footer_logo_responsive {
+        height: 20%;
+
+    }
+    
+
+    .logo_footer img {
+        height: 100%;
+
+    }
+
+    .footer_socialMedia_responsive {
+        height: 20%;
+
+    }
+
+    .socialMediaUp, .socialMediaBottom {
+
+        align-items:center;
+    
+        padding-top: 0px;
+        padding-bottom: 0px;
+    
+    }
+
+    .footer_socialMedia {
+        padding-left: 10px;
+    }
+
+        
+    .footer_socialMedia a {
+
+        height: 80%;
+
+    }
+
+    .footer_logo2_responsive {
+        height: 40%;
+
+    }
+    
+    .footer_KO729 {
+        height: 50%;
+    }
+
+    .footer_AE {
+        height: 50%;
+    }
+
+}
+
+
+
+/* Estilos del banner */
+
+.banner_container {
+
+    width: 100vw;
+    height: 70vh;
+
+    background-color: var(--green-main);
+
+    position: relative;
+
+
+}
+
+.banner_element {
+    width: 100vw;
+    height: 70vh; 
+
+    filter: brightness(0.5); 
+
+    object-fit:cover;
+
+    position: absolute;
+
+    transition: 1s all;
+
+}
+
+
+/* Estilos de TITULO */
+
+
+.tittle_container {
+    display: flex;
+
+    align-items: center;
+    width: 100vw;
+    height: 40vh;
+    overflow: hidden;
+
+
+
+}
+
+.tittle_elementsContainer {
+
+    
+    margin-top: 15vh;
+
+    width: 100%;
+    height: 70%;
+
+
+
+}
+
+.tittle_element {
+    display: flex;
+
+    width: 100%;
+    height: 67%;
+
+    justify-content: center;
+    align-items: center;
+
+
+}
+
+.tittle_img {
+
+
+    height: 80%;
+
+}
+
+.tittle {
+
+    display: flex;
+
+    width: 100%;
+    height: 33% ;
+
+    justify-content: center;
+    align-items: start;
+    text-align: center;
+
+    font-family: var(--JosefinSans);
+    font-size: 2.5vh;
+    font-weight: 100;
+
+
+
+}
+
+
+@media only screen and (max-width: 480px) {
+
+   
+
+    .tittle_element {
+
+        height: 40%
+    };
+
+    .tittle {
+        height: 60%;
+        
+    }
+
+}
+
+
+
+
+========================================
+FILE: public\recursos\funciones.js
+========================================
+
+
+document.addEventListener("DOMContentLoaded", function () {
+
+
+  var idActive = ["banner1", "banner2", "banner3", "banner4"];
+
+  var i = 0;
+  function ejecutarBucle() {
+    if (i < idActive.length) {
+      var bannerOff = document.getElementById(idActive[i]);
+      bannerOff.style.opacity = '0';
+
+      if (i == 3) {
+        var bannerON = document.getElementById(idActive[0]);
+
+        bannerON.style.opacity = '1';
+
+      }
+     
+      i++;
+    } else {
+
+      var bannerElements = document.querySelectorAll(".banner_element");
+
+      bannerElements.forEach(function (element) {
+        element.style.opacity = '1';
+      });
+
+      i = 0;
+    }
+  }
+
+
+  // Ejecuta el bucle cada 5 segundos
+  setInterval(ejecutarBucle, 5000);
+
+
+
+});
+
+
+
+
+
+========================================
+FILE: public\recursos\header.js
+========================================
+
+
+// Funcion Para activar barra lateral 
+
+document.addEventListener('DOMContentLoaded', function () {
+    // ObtÃ©n el div clickeable
+    var detonador = document.getElementById('menuResponsive');
+  
+    // Agrega un evento de clic al div clickeable
+    detonador.addEventListener('click', function () {
+      // ObtÃ©n el div objetivo
+      var barralateral = document.getElementById('sideNavBar');
+  
+      // Inyecta propiedades CSS sobre el div objetivo
+      barralateral.style.left = '0px';
+      
+    });
+  });
+
+// Funcion para desactivar barra lateral 
+
+document.addEventListener('DOMContentLoaded', function () {
+    // ObtÃ©n el div clickeable
+    var detonador = document.getElementById('closeNavBar');
+  
+    // Agrega un evento de clic al div clickeable
+    detonador.addEventListener('click', function () {
+      // ObtÃ©n el div objetivo
+      var barralateral = document.getElementById('sideNavBar');
+  
+      // Inyecta propiedades CSS sobre el div objetivo
+      barralateral.style.left = '100vw';
+      
+    });
+  });
+
+
+  
+// function esconderHeader () {
+
+//   let ubicacionPrincipal = window.pageYOffset;
+//   window.onscroll = function () {
+//       let desplazamiento = window.pageYOffset; 
+//       if (ubicacionPrincipal >= desplazamiento) {
+//           document.getElementById('header').style.top = "0";
+          
+//       }
+//       else {
+//           document.getElementById('header').style.top = "-110px";
+//       }
+
+//       ubicacionPrincipal = desplazamiento;
+// }
+// } 
+
+
+
+
+========================================
+FILE: public\recursos\index.css
+========================================
+
+
+.tittle_container {
+    display: flex;
+
+    align-items: center;
+    width: 100vw;
+    height: 30vh;
+    overflow: hidden;
+
+
+
+}
+
+.tittle_elementsContainer {
+
+    
+    margin-top: 0vh;
+
+    width: 100%;
+    height: 70%;
+
+
+
+}
+
+/* Estilos de Desarrollos + Construccion */
+
+.desarrollosConstruccion_Container {
+    display: block;
+
+    width: 100vw;
+
+    background-color: var(--green-main);
+
+    color: var(--logo);
+}
+
+.desarrollosConstruccion {
+    display: flex;
+
+    width: 100vw;
+    min-height: 60vh;
+
+    padding-bottom: 4vh;
+    padding-top: 4vh;
+
+    justify-content: center;
+   
+}
+
+
+.deCo_element {
+    display: flex;
+
+    width: 80%;
+
+    /* 
+    centrar
+    align-items: center; */
+
+    align-items: start;
+
+
+
+}
+
+.decoText {
+    width: 60%;
+    height: fit-content;
+
+    padding-left: 5vw;
+    padding-right: 5vw;
+}
+
+.deCo_titulo {
+    display: flex;
+
+    justify-content: center;
+
+    font-family: var(--JosefinSans);
+    font-size: 4vh;
+    font-weight: 900;
+
+    text-align: center;
+}
+
+.deCo_description {
+
+    padding-top: 2vh;
+    padding-bottom: 4vh;
+
+
+    font-family: sans-serif;
+    font-size: 2vh;
+
+
+    text-align: justify;
+} 
+
+.deCo_button_container {
+    display: flex;
+    
+    width: 100%;
+
+    align-items: center;
+    justify-content: center;
+
+}
+
+
+.deCo_img {
+
+    width: 40%;
+    height: 100%;
+
+
+
+
+}
+
+.img1 {
+    background-image: url(../img/index/desarrollos.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.img2 {
+    background-image: url(../img/index/construccion.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+}
+
+.deCo_button {
+    
+    font-size: 2vh;
+    padding: 1vh;
+
+    font-family:var(--JosefinSans);
+    font-weight: 100;
+
+    text-decoration: none;
+    color: var(--logo);
+
+    transition: .5s all;
+
+    border: solid 1px;
+
+}
+
+.deCo_button_container :hover {
+
+    background-color: var(--logo);
+    color: var(--green-main);
+}
+
+@media only screen and (max-width: 950px) {
+    
+
+    .deCo_element {
+        display: block;
+
+        width: 90%;
+        height: auto;
+        
+    }
+
+    .decoText {
+        width: 100%;
+        
+    }
+
+    
+    .deCo_img {
+
+        margin-top: 5vh;
+        margin-left: 10%;
+        margin-right: 10%;
+
+        width: 80%;
+        height: 50vh;
+
+
+
+
+    }
+
+
+    .deCo_description {
+        padding-left: 0;
+        padding-right: 0;
+        
+    }
+
+    .deCo_button_container {
+        margin-top: 7%;
+    }
+
+}
+
+
+
+
+/* Estilos del COLLAGE */
+
+.collageContainer {
+    height: 0vh;
+}
+
+
+
+========================================
+FILE: public\recursos\inversion.css
+========================================
+
+
+/* Estilos de recuadros DiseÃ±o y construccion */
+
+
+
+.elementContainer {
+    display: flex;
+
+    justify-content: center;
+
+    padding-top: 4%;
+
+    width: 100vw;
+    min-height: 30vh;
+
+    background-color: var(--green-main);
+    color: var(--logo);
+
+
+}
+
+.textContainer {
+    display: flex;
+
+    justify-content: center;
+    align-items: start;
+
+    width: 30vw;
+    min-height: 100%;
+
+
+}
+
+.textCenter {
+    height: fit-content;
+    width: 90%;
+
+}
+
+.tituloContainer {
+
+    font-family: var(--JosefinSans);
+    font-weight: 900;
+    font-size: 4vh;
+
+}
+
+.descripcionContainer {
+
+    padding-top: 1vh;
+
+    font-family: sans-serif;
+    font-size: 2vh;
+    font-weight: 100;
+
+    text-align: justify;
+
+}
+
+.imgContainer {
+    display: flex;
+
+    width: 40vw;
+    min-height: 40vh;
+
+    margin-bottom: 4vh;
+
+    margin-left: 4vw;
+    margin-right: 4vw;
+
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+}
+
+
+
+.img1 {
+    
+    border: solid 1px;
+    
+}
+
+.img2 {
+
+    border: solid 1px;
+}
+
+.img3 {
+
+    border: solid 1px;
+}
+
+
+@media only screen and (max-width: 1200px) {
+
+    .imgContainer {
+        width: 50vw;
+    }
+
+}
+
+
+
+@media only screen and (max-width: 950px) {
+
+    .elementContainer {
+
+        display: block;
+
+    
+        padding-bottom: 4vh;
+       
+
+    }
+
+            
+    .textContainer {
+        display: flex;
+
+        width: 100%;
+        min-height: 20vh;
+
+        text-align: justify;
+
+        justify-content: center;
+        align-items: center;
+    
+    
+    } 
+
+    .textCenter {
+        width: 70%;
+    }
+
+    .imgContainer {
+        display: flex;
+    
+        width: 60vw;
+        min-height: 40vh;
+    
+        margin-top: 2vh;
+        margin-bottom: 0vh;
+    
+        margin-left: 20vw;
+        margin-right: 20vw;
+    
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+    
+    }
+
+    .tituloContainer {
+
+        padding-top: 5vh;
+
+        text-align: center;
+
+        font-family: var(--JosefinSans);
+        font-weight: 900;
+        font-size: 4vh;
+    
+    }
+    
+    .descripcionContainer {
+    
+        padding-top: 1vh;
+    
+        font-family: sans-serif;
+        font-size: 2vh;
+        font-weight: 100;
+    
+    }
+
+    .descriptionServices {
+        width: 70%;
+
+        margin: auto;
+
+    }
+    
+
+    
+
+   
+}
+
+@media only screen and (max-width: 650px) {
+           
+    .textContainer {
+        display: flex;
+
+        width: 100%;
+        min-height: 20vh;
+
+
+        text-align: justify;
+
+        justify-content: center;
+        align-items: center;
+    
+    
+    } 
+
+    .textCenter {
+        width: 90%;
+    }
+
+    .imgContainer {
+        display: flex;
+    
+        width: 90vw;
+        min-height: 40vh;
+    
+        margin-top: 2vh;
+        margin-bottom: 0vh;
+    
+        margin-left: 5vw;
+        margin-right: 5vw;
+    
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+    
+    }
+
+    .descriptionServices {
+        width: 80%; 
+    
+    }
+    
+}
+
+
+
+
+========================================
+FILE: public\recursos\normalize.css
+========================================
+
+/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
+
+/* Document
+   ========================================================================== */
+
+ * {
+   box-sizing: border-box;
+   padding: 0;
+   margin: 0;
+   
+ } 
+
+
+/**
+ * 1. Correct the line height in all browsers.
+ * 2. Prevent adjustments of font size after orientation changes in iOS.
+ */
+
+html {
+  line-height: 1.15; /* 1 */
+  -webkit-text-size-adjust: 100%; /* 2 */
+}
+
+/* Sections
+   ========================================================================== */
+
+/**
+ * Remove the margin in all browsers.
+ */
+
+body {
+  margin: 0;
+}
+
+/**
+ * Render the `main` element consistently in IE.
+ */
+
+main {
+  display: block;
+}
+
+/**
+ * Correct the font size and margin on `h1` elements within `section` and
+ * `article` contexts in Chrome, Firefox, and Safari.
+ */
+
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+/* Grouping content
+   ========================================================================== */
+
+/**
+ * 1. Add the correct box sizing in Firefox.
+ * 2. Show the overflow in Edge and IE.
+ */
+
+hr {
+  box-sizing: content-box; /* 1 */
+  height: 0; /* 1 */
+  overflow: visible; /* 2 */
+}
+
+/**
+ * 1. Correct the inheritance and scaling of font size in all browsers.
+ * 2. Correct the odd `em` font sizing in all browsers.
+ */
+
+pre {
+  font-family: monospace, monospace; /* 1 */
+  font-size: 1em; /* 2 */
+}
+
+/* Text-level semantics
+   ========================================================================== */
+
+/**
+ * Remove the gray background on active links in IE 10.
+ */
+
+a {
+  background-color: transparent;
+}
+
+/**
+ * 1. Remove the bottom border in Chrome 57-
+ * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
+ */
+
+abbr[title] {
+  border-bottom: none; /* 1 */
+  text-decoration: underline; /* 2 */
+  text-decoration: underline dotted; /* 2 */
+}
+
+/**
+ * Add the correct font weight in Chrome, Edge, and Safari.
+ */
+
+b,
+strong {
+  font-weight: bolder;
+}
+
+/**
+ * 1. Correct the inheritance and scaling of font size in all browsers.
+ * 2. Correct the odd `em` font sizing in all browsers.
+ */
+
+code,
+kbd,
+samp {
+  font-family: monospace, monospace; /* 1 */
+  font-size: 1em; /* 2 */
+}
+
+/**
+ * Add the correct font size in all browsers.
+ */
+
+small {
+  font-size: 80%;
+}
+
+/**
+ * Prevent `sub` and `sup` elements from affecting the line height in
+ * all browsers.
+ */
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+sup {
+  top: -0.5em;
+}
+
+/* Embedded content
+   ========================================================================== */
+
+/**
+ * Remove the border on images inside links in IE 10.
+ */
+
+img {
+  border-style: none;
+  max-width: 100%;
+}
+
+/* Forms
+   ========================================================================== */
+
+/**
+ * 1. Change the font styles in all browsers.
+ * 2. Remove the margin in Firefox and Safari.
+ */
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit; /* 1 */
+  font-size: 100%; /* 1 */
+  line-height: 1.15; /* 1 */
+  margin: 0; /* 2 */
+}
+
+/**
+ * Show the overflow in IE.
+ * 1. Show the overflow in Edge.
+ */
+
+button,
+input { /* 1 */
+  overflow: visible;
+}
+
+/**
+ * Remove the inheritance of text transform in Edge, Firefox, and IE.
+ * 1. Remove the inheritance of text transform in Firefox.
+ */
+
+button,
+select { /* 1 */
+  text-transform: none;
+}
+
+/**
+ * Correct the inability to style clickable types in iOS and Safari.
+ */
+
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+  -webkit-appearance: button;
+}
+
+/**
+ * Remove the inner border and padding in Firefox.
+ */
+
+button::-moz-focus-inner,
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+
+/**
+ * Restore the focus styles unset by the previous rule.
+ */
+
+button:-moz-focusring,
+[type="button"]:-moz-focusring,
+[type="reset"]:-moz-focusring,
+[type="submit"]:-moz-focusring {
+  outline: 1px dotted ButtonText;
+}
+
+/**
+ * Correct the padding in Firefox.
+ */
+
+fieldset {
+  padding: 0.35em 0.75em 0.625em;
+}
+
+/**
+ * 1. Correct the text wrapping in Edge and IE.
+ * 2. Correct the color inheritance from `fieldset` elements in IE.
+ * 3. Remove the padding so developers are not caught out when they zero out
+ *    `fieldset` elements in all browsers.
+ */
+
+legend {
+  box-sizing: border-box; /* 1 */
+  color: inherit; /* 2 */
+  display: table; /* 1 */
+  max-width: 100%; /* 1 */
+  padding: 0; /* 3 */
+  white-space: normal; /* 1 */
+}
+
+/**
+ * Add the correct vertical alignment in Chrome, Firefox, and Opera.
+ */
+
+progress {
+  vertical-align: baseline;
+}
+
+/**
+ * Remove the default vertical scrollbar in IE 10+.
+ */
+
+textarea {
+  overflow: auto;
+}
+
+/**
+ * 1. Add the correct box sizing in IE 10.
+ * 2. Remove the padding in IE 10.
+ */
+
+[type="checkbox"],
+[type="radio"] {
+  box-sizing: border-box; /* 1 */
+  padding: 0; /* 2 */
+}
+
+/**
+ * Correct the cursor style of increment and decrement buttons in Chrome.
+ */
+
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+/**
+ * 1. Correct the odd appearance in Chrome and Safari.
+ * 2. Correct the outline style in Safari.
+ */
+
+[type="search"] {
+  -webkit-appearance: textfield; /* 1 */
+  outline-offset: -2px; /* 2 */
+}
+
+/**
+ * Remove the inner padding in Chrome and Safari on macOS.
+ */
+
+[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/**
+ * 1. Correct the inability to style clickable types in iOS and Safari.
+ * 2. Change font properties to `inherit` in Safari.
+ */
+
+::-webkit-file-upload-button {
+  -webkit-appearance: button; /* 1 */
+  font: inherit; /* 2 */
+}
+
+/* Interactive
+   ========================================================================== */
+
+/*
+ * Add the correct display in Edge, IE 10+, and Firefox.
+ */
+
+details {
+  display: block;
+}
+
+/*
+ * Add the correct display in all browsers.
+ */
+
+summary {
+  display: list-item;
+}
+
+/* Misc
+   ========================================================================== */
+
+/**
+ * Add the correct display in IE 10+.
+ */
+
+template {
+  display: none;
+}
+
+/**
+ * Add the correct display in IE 10.
+ */
+
+[hidden] {
+  display: none;
+}
+
+
+
+

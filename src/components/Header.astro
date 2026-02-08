@@ -1,0 +1,78 @@
+---
+const currentPath: string = Astro.url.pathname;
+
+type NavItem = {
+  href: string;
+  label: string;
+};
+
+const navItems: NavItem[] = [
+  { href: "/", label: "Inicio" },
+  { href: "/desarrollos", label: "Desarrollos" }, // ojo: si no existe la página, coméntalo temporalmente
+  { href: "/construccion", label: "Construcción a la medida" },
+  { href: "/inversion", label: "Invierte con nosotros" },
+  { href: "/aboutUS", label: "Acerca de KO729" },
+  { href: "/contacto", label: "Contacto" }
+];
+
+const isActive = (href: string): boolean => {
+  if (href === "/") return currentPath === "/";
+  return currentPath.startsWith(href);
+};
+---
+
+<header class="site-header">
+  <div class="header-overlay">
+    <a href="/" class="brand" aria-label="Ir al inicio de KO729">
+      <img src="/img/logos/logo.png" alt="KO729" class="brand-logo" />
+    </a>
+
+    <button
+      id="menuToggle"
+      class="menu-toggle"
+      type="button"
+      aria-label="Abrir menú"
+      aria-controls="sideNavBar"
+      aria-expanded="false"
+    >
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav class="desktop-nav" aria-label="Navegación principal">
+      <ul>
+        {
+          navItems.map((item) => (
+            <li>
+              <a href={item.href} class={isActive(item.href) ? "active" : ""}>
+                {item.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+  </div>
+
+  <aside id="sideNavBar" class="side-nav" aria-label="Menú móvil">
+    <div class="side-nav-header">
+      <img src="/img/logos/logo.png" alt="KO729" class="side-logo" />
+      <button id="closeMenu" class="close-menu" type="button" aria-label="Cerrar menú">✕</button>
+    </div>
+
+    <nav aria-label="Navegación móvil">
+      <ul>
+        {
+          navItems.map((item) => (
+            <li>
+              <a href={item.href} class={isActive(item.href) ? "active" : ""}>
+                {item.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+  </aside>
+
+  <div id="menuBackdrop" class="menu-backdrop" aria-hidden="true"></div>
+</header>
