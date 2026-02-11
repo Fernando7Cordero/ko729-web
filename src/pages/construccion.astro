@@ -3,8 +3,9 @@ import "../styles/pages/construccion.css";
 import "../styles/shared/buttons.css";
 import "../styles/shared/sections.css";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import ContentSection from "../components/ui/ContentSection.astro";
 import SectionBlock from "../components/ui/SectionBlock.astro";
-import SectionTitle from "../components/ui/SectionTitle.astro";
+import PageHeader from "../components/ui/PageHeader.astro";
 import { construccionContent, metaContent } from "../data/content";
 
 const title = "Construcción a la medida | KO729";
@@ -18,15 +19,16 @@ const keywords = metaContent.pages.construccion.keywords;
   keywords={keywords}
   pageCss={[]}
 >
-  <SectionTitle title={construccionContent.title} />
-
-  {construccionContent.blocks.map((block, index) => (
-    <div class={`elementContainer${index === 2 ? " element3" : ""}`}>
-      <SectionBlock
-        title={block.title}
-        description={block.description}
-        imageClass={block.imageClass}
-      />
-    </div>
-  ))}
+  <PageHeader title={construccionContent.title} />
+  <ContentSection>
+    {construccionContent.blocks.map((block, index) => (
+      <div class={`elementContainer${index === 2 ? " element3" : ""}`}>
+        <SectionBlock
+          title={block.title}
+          description={block.description}
+          imageClass={block.imageClass}
+        />
+      </div>
+    ))}
+  </ContentSection>
 </BaseLayout>

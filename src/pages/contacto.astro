@@ -1,7 +1,8 @@
 ---
 import "../styles/pages/contact.css";
 import BaseLayout from "../layouts/BaseLayout.astro";
-import SectionTitle from "../components/ui/SectionTitle.astro";
+import ContentSection from "../components/ui/ContentSection.astro";
+import PageHeader from "../components/ui/PageHeader.astro";
 import { contactLinks, contactoContent, metaContent } from "../data/content";
 
 const pageTitle = "Contacto | KO729";
@@ -18,28 +19,29 @@ const pageCss: string[] = [];
   keywords={pageKeywords}
   pageCss={pageCss}
 >
-  <SectionTitle title={contactoContent.title} />
+  <PageHeader title={contactoContent.title} />
+  <ContentSection>
+    <div class="contactContainer">
+      <div class="contactBox text">
+        <div class="textElements">
+          <div class="speechContainer">{contactoContent.intro}</div>
 
-  <div class="contactContainer">
-    <div class="contactBox text">
-      <div class="textElements">
-        <div class="speechContainer">{contactoContent.intro}</div>
-
-        <div class="datosContainer">
-                {contactLinks.map((link) => (
-            <div class="elementContainer">
-              <a href={link.href}>
-                      <img src={link.iconSrc} alt={link.label.toLowerCase()} class="footer_icon" />
-                {link.label}
-              </a>
-            </div>
-          ))}
+          <div class="datosContainer">
+            {contactLinks.map((link) => (
+              <div class="elementContainer">
+                <a href={link.href}>
+                  <img src={link.iconSrc} alt={link.label.toLowerCase()} class="footer_icon" />
+                  {link.label}
+                </a>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="contactBox image">
-      <div class="contactImg"></div>
+      <div class="contactBox image">
+        <div class="contactImg"></div>
+      </div>
     </div>
-  </div>
+  </ContentSection>
 </BaseLayout>

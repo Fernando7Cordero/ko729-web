@@ -1,164 +1,186 @@
-
-@import "../shared/buttons.css";
-
-/* ESTILOS PARA ELEMENTO DE DESARROLLO */
-
-
-
-.desarrollosContainer {
-
-    width: 100vw;
-    
-    padding-top: 5vh;
-    padding-bottom: 5vh;
-
-    padding-left: 10vw;
-    padding-right: 10vw;
-
-    background-color: var(--green-main);
-    color: var(--logo);
+.desarrollosPage {
+  position: relative;
+  color: var(--logo);
+  --page-header-shadow: drop-shadow(0 12px 28px rgba(0, 0, 0, 0.2));
 }
 
-.desarrolloContainer {
-    display: flex;
-
-    min-height: 70vh;
-    width: 100%;
-
-    
-    
+.desarrollosPage::before,
+.desarrollosPage::after {
+  display: none;
 }
 
-.desarrolloText {
-    display: block;
-
-    width: 60%;
-    min-height: 100%;
-
-    /* 
-    centrar
-    padding-top: 5%; */
-    padding-bottom: 5%;
-
-
+.desarrollosIntro {
+  position: relative;
+  z-index: 1;
+  width: min(760px, 90vw);
+  margin: 1vh auto 6vh;
+  text-align: center;
+  font-family: var(--Manrope);
+  font-size: clamp(1.05rem, 1.8vw, 1.25rem);
+  color: rgba(217, 211, 199, 0.88);
 }
 
+.desarrollosGrid {
+  position: relative;
+  z-index: 1;
+  width: min(1160px, 92vw);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: clamp(1rem, 2vw, 2.2rem);
+  justify-content: center;
+}
 
-.desarrolloImg {
-    display: flex;
-
-    width: 40%;
-    min-height: 100%;
-
-    background-image: var(--asset-desarrollos-proyecto);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+.projectCard {
+  display: flex;
+  flex-direction: column;
+  min-height: 300px;
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
+  border: 1px solid rgba(217, 211, 199, 0.2);
+  border-radius: 26px;
+  overflow: hidden;
+  box-shadow: 0 22px 55px rgba(0, 0, 0, 0.28);
+  transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
 }
 
 
-.desarrolloTittle {
-    display: flex;
-    
-    width: 100%;
-
-    justify-content: center;
-
-    font-size: 4vh;
-    font-family: var(--JosefinSans);
-
-    font-weight:900;
-
+.projectMedia {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  background-image: var(--asset-desarrollos-proyecto);
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.45s ease, filter 0.45s ease;
 }
 
-.desarrolloDescription {
-
-    width: 100%;
-
-    text-align: center;
-
-    padding-left: 10%;
-    padding-right: 10%;
-
-    padding-top: 5vh;
-    padding-bottom: 10vh;
-
-    
-    font-size: 2.5vh;
-    font-family: sans-serif;
-
-    text-align: justify;
-
+.projectMedia::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.55) 100%);
+  transition: opacity 0.35s ease;
 }
 
 
-.deCo_button_container {
-    margin-top: 3vh;
+.projectBody {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  padding: 1.6rem 1.7rem 1.7rem;
 }
 
-
-
-/* ESTILOS RESPONSIVE PARA DESARROLLOS */
-
-@media only screen and (max-width: 1500px) {
-
-    
-.desarrolloText {
-    width: 50%;
-
+.projectEyebrow {
+  font-family: var(--RobotoFlex);
+  font-size: 0.62rem;
+  letter-spacing: 0.14rem;
+  text-transform: uppercase;
+  color: rgba(243, 210, 121, 0.9);
 }
 
-
-.desarrolloImg {
-    width: 50%;
-
+.projectTitle {
+  margin: 0;
+  font-family: var(--JosefinSans);
+  font-size: clamp(1.05rem, 1.9vw, 1.35rem);
+  letter-spacing: 0.06rem;
+  transition: color 0.3s ease, transform 0.3s ease;
 }
 
+.projectDescription {
+  margin: 0;
+  font-family: var(--Manrope);
+  font-size: clamp(0.95rem, 1.1vw, 1.05rem);
+  line-height: 1.7;
+  color: rgba(217, 211, 199, 0.9);
+  transition: color 0.3s ease;
+  --desc-lines: 3;
+  --desc-total-lines: 6;
+  --desc-max-height: calc(var(--desc-lines) * 1.7em);
+  --desc-total-height: calc(var(--desc-max-height) * 2);
+  max-height: var(--desc-max-height);
+  overflow: hidden;
 }
 
+.projectDescriptionText {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: var(--desc-lines);
+  overflow: hidden;
+  max-height: var(--desc-max-height);
+  transition: transform 0.9s ease;
+  transform: translateY(0);
+  will-change: transform;
+}
 
-@media only screen and (max-width: 1000px) {
+@media (hover: hover) and (pointer: fine) {
+  .projectCard:hover {
+    transform: translateY(-8px);
+    border-color: rgba(243, 210, 121, 0.6);
+    box-shadow: 0 30px 64px rgba(0, 0, 0, 0.38);
+  }
 
-    
-    .desarrollosContainer {
-        min-height: 100vh;
+  .projectCard:hover .projectTitle {
+    color: rgba(243, 210, 121, 0.95);
+    transform: translateY(-2px);
+  }
 
-        width: 100vw;
-        
-        
+  .projectCard:hover .projectDescription {
+    color: rgba(217, 211, 199, 0.98);
+  }
 
-    }
-    
-    .desarrolloContainer {
-        display: block;
+  .projectCard:hover .projectMedia {
+    transform: scale(1.04);
+    filter: saturate(1.08);
+  }
 
-    }
+  .projectCard:hover .projectMedia::after {
+    opacity: 0.85;
+  }
 
+  .projectCard:hover .projectDescriptionText.isScrollable,
+  .projectCard:focus-visible .projectDescriptionText.isScrollable {
+    -webkit-line-clamp: var(--desc-total-lines);
+    max-height: var(--desc-total-height);
+    transform: translateY(calc(-1 * var(--desc-max-height)));
+  }
+}
 
-    .desarrolloText {
-        width: 100%;
+@media only screen and (max-width: 1024px) {
+  .projectDescriptionText {
+    transition: transform 1.8s ease-in-out;
+  }
 
-        border-bottom: solid 1px;
-    
-    }
-    
-    .desarrolloDescription {
-        padding-top: 5vh;
-        padding-bottom: 5vh;
+  .projectCard.isAutoScroll .projectDescriptionText.isScrollable {
+    -webkit-line-clamp: var(--desc-total-lines);
+    max-height: var(--desc-total-height);
+    transform: translateY(calc(-1 * var(--desc-max-height)));
+  }
+}
 
-        padding-left: 0%;
-        padding-right: 0%;
+.projectCard:focus-visible {
+  outline: 2px solid rgba(243, 210, 121, 0.8);
+  outline-offset: 4px;
+}
 
-    }
-    
-    .desarrolloImg {
-        width: 100%;
+@media only screen and (max-width: 900px) {
+  .desarrollosIntro {
+    width: min(680px, 90vw);
+    margin-bottom: 5vh;
+  }
 
-        height: 70vh;
-    
-    }
+  .projectBody {
+    padding: 1.35rem 1.4rem 1.45rem;
+  }
+}
 
-   
-    
+@media only screen and (max-width: 600px) {
+  .desarrollosIntro {
+    text-align: left;
+  }
 
+  .projectCard {
+    border-radius: 20px;
+  }
 }

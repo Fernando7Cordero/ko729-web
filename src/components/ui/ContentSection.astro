@@ -1,0 +1,18 @@
+---
+interface Props {
+  className?: string;
+  innerClassName?: string;
+}
+
+const { className = "", innerClassName = "" } = Astro.props;
+const sectionClass = ["contentSection", className].filter(Boolean).join(" ");
+const innerClass = ["contentSection_inner", innerClassName]
+  .filter(Boolean)
+  .join(" ");
+---
+
+<section class={sectionClass}>
+  <div class={innerClass}>
+    <slot />
+  </div>
+</section>

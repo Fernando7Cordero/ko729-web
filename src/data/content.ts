@@ -53,6 +53,9 @@ const ensure = (condition: boolean, message: string) => {
 const projectSummaries = projectsContent.featured as ProjectSummary[];
 const projectDetails = projectDetailsContent.projects as ProjectDetail[];
 
+// CMS note: keep project summary descriptions at or below this limit.
+export const MAX_PROJECT_DESCRIPTION_CHARS = 210;
+
 const isValidProjectSummary = (project: ProjectSummary) =>
   Boolean(project.slug && project.title && project.description);
 
@@ -63,6 +66,10 @@ projectSummaries.forEach((project) => {
   ensure(Boolean(project.slug), "Project summary is missing slug.");
   ensure(Boolean(project.title), `Project ${project.slug} is missing title.`);
   ensure(Boolean(project.description), `Project ${project.slug} is missing description.`);
+  ensure(
+    project.description.length <= MAX_PROJECT_DESCRIPTION_CHARS,
+    `Project ${project.slug} description exceeds ${MAX_PROJECT_DESCRIPTION_CHARS} characters.`
+  );
 });
 
 projectDetails.forEach((project) => {

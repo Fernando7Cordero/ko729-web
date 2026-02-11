@@ -11,8 +11,6 @@
     padding-left: 5vw;
     padding-right: 5vw;
 
-    background-color: var(--green-main);
-
     color: var(--logo);
 }
 
@@ -84,7 +82,6 @@
     padding-left: 5vw;
     padding-right: 5vw;
 
-    background-color: var(--green-main);
     color: var(--logo);
 }
 

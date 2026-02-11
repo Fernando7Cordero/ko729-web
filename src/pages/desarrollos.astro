@@ -1,8 +1,9 @@
 ---
 import "../styles/pages/desarrollos.css";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import ContentSection from "../components/ui/ContentSection.astro";
 import ProjectCard from "../components/ui/ProjectCard.astro";
-import SectionTitle from "../components/ui/SectionTitle.astro";
+import PageHeader from "../components/ui/PageHeader.astro";
 import { metaContent, validProjectSummaries } from "../data/content";
 
 const title = "Desarrollos | KO729";
@@ -16,16 +17,19 @@ const keywords = metaContent.pages.desarrollos.keywords;
   keywords={keywords}
   pageCss={[]}
 >
-  <SectionTitle title="DESARROLLOS" />
-
-  <div class="desarrollosContainer">
-    {validProjectSummaries.map((project) => (
-      <ProjectCard
-        title={project.title}
-        description={project.description}
-        href={`/desarrollos/${project.slug}`}
-        buttonText={project.buttonText}
-      />
-    ))}
-  </div>
+  <PageHeader title="DESARROLLOS" />
+  <ContentSection className="desarrollosPage">
+    <p class="desarrollosIntro">
+      Explora nuestros desarrollos activos y conoce su avance.
+    </p>
+    <div class="desarrollosGrid">
+      {validProjectSummaries.map((project) => (
+        <ProjectCard
+          title={project.title}
+          description={project.description}
+          href={`/desarrollos/${project.slug}`}
+        />
+      ))}
+    </div>
+  </ContentSection>
 </BaseLayout>

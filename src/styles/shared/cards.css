@@ -10,7 +10,7 @@
     width: 100vw;
     min-height: 30vh;
 
-    background-color: var(--green-main);
+    background-color: transparent;
     color: var(--logo);
 }
 

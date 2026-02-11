@@ -1,7 +1,8 @@
 ---
 import "../styles/pages/aboutUs.css";
 import BaseLayout from "../layouts/BaseLayout.astro";
-import SectionTitle from "../components/ui/SectionTitle.astro";
+import ContentSection from "../components/ui/ContentSection.astro";
+import PageHeader from "../components/ui/PageHeader.astro";
 import { aboutContent, metaContent } from "../data/content";
 
 const title = "Acerca de KO729 | KO729";
@@ -15,22 +16,23 @@ const keywords = metaContent.pages.about.keywords;
   keywords={keywords}
   pageCss={[]}
 >
-  <SectionTitle title={aboutContent.title} />
+  <PageHeader title={aboutContent.title} />
+  <ContentSection>
+    <div class="aboutContainer">
+      <div class="elementContainer">
+        <div class="textContainer">
+          {aboutContent.sections.map((section) => (
+            <>
+              <div class="tittleAbout">{section.title}</div>
+              <div class="descriptionAbout" set:html={section.description} />
+            </>
+          ))}
+        </div>
+      </div>
 
-  <div class="aboutContainer">
-    <div class="elementContainer">
-      <div class="textContainer">
-        {aboutContent.sections.map((section) => (
-          <>
-            <div class="tittleAbout">{section.title}</div>
-            <div class="descriptionAbout" set:html={section.description} />
-          </>
-        ))}
+      <div class="elementContainer">
+        <div class="imgContainer"></div>
       </div>
     </div>
-
-    <div class="elementContainer">
-      <div class="imgContainer"></div>
-    </div>
-  </div>
+  </ContentSection>
 </BaseLayout>

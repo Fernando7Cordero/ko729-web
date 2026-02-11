@@ -3,8 +3,9 @@ import "../styles/pages/inversion.css";
 import "../styles/shared/buttons.css";
 import "../styles/shared/sections.css";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import ContentSection from "../components/ui/ContentSection.astro";
 import SectionBlock from "../components/ui/SectionBlock.astro";
-import SectionTitle from "../components/ui/SectionTitle.astro";
+import PageHeader from "../components/ui/PageHeader.astro";
 import { inversionContent, metaContent } from "../data/content";
 
 const title = "Invierte con Nosotros | KO729";
@@ -18,17 +19,18 @@ const keywords = metaContent.pages.inversion.keywords;
   keywords={keywords}
   pageCss={[]}
 >
-  <SectionTitle title={inversionContent.title} />
-
-  <div class="inversionContainer">
-    {inversionContent.blocks.map((block) => (
-      <div class="elementContainer">
-        <SectionBlock
-          title={block.title}
-          description={block.description}
-          imageClass={block.imageClass}
-        />
-      </div>
-    ))}
-  </div>
+  <PageHeader title={inversionContent.title} />
+  <ContentSection>
+    <div class="inversionContainer">
+      {inversionContent.blocks.map((block) => (
+        <div class="elementContainer">
+          <SectionBlock
+            title={block.title}
+            description={block.description}
+            imageClass={block.imageClass}
+          />
+        </div>
+      ))}
+    </div>
+  </ContentSection>
 </BaseLayout>

@@ -5,6 +5,18 @@
       "title": "PROYECTO DESTACADO",
       "description": "Descripción general del proyecto. Este contenido es editable y no refiere a ningún desarrollo específico.",
       "buttonText": "Ver más"
+    },
+    {
+      "slug": "andador",
+      "title": "ANDADOR CENTRAL",
+      "description": "Complejo urbano con locales, oficinas y espacios abiertos pensados para conectar comunidad y comercio. Integra amenidades de uso comun y circulaciones claras para activar la vida peatonal.",
+      "buttonText": "Ver más"
+    },
+    {
+      "slug": "patio",
+      "title": "PATIO RESIDENCIAL",
+      "description": "Conjunto habitacional con enfoque en confort, areas verdes y accesos controlados.",
+      "buttonText": "Ver más"
     }
   ]
 }

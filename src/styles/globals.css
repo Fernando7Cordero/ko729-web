@@ -41,6 +41,25 @@ body::-webkit-scrollbar {
     height: auto;
 }
 
+.contentSection {
+    min-height: 60vh;
+    background-color: #3a3d33;
+    color: var(--logo);
+    padding: 8vh 0 10vh;
+    position: relative;
+}
+
+.contentSection_inner {
+    width: 100%;
+    min-height: inherit;
+}
+
+@media only screen and (max-width: 600px) {
+    .contentSection {
+        padding: 4vh 0 8vh;
+    }
+}
+
 
 /* Header */
 
