@@ -75,6 +75,23 @@
     font-weight: 600;
     text-transform: uppercase;
     text-shadow: 0 0 12px rgba(243, 210, 121, 0.35);
+    text-align: center;
+}
+
+.hero_title-part,
+.hero_title-plus {
+    display: inline;
+}
+
+@media only screen and (max-width: 640px) {
+    .hero_subtitle {
+        line-height: 1.7;
+    }
+
+    .hero_title-part,
+    .hero_title-plus {
+        display: block;
+    }
 }
 
 @keyframes hero-fade-in {

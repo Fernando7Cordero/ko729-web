@@ -10,6 +10,9 @@ import SectionBlock from "../components/ui/SectionBlock.astro";
 const title = "KO729 | Inicio";
 const description = "Arquitectura, ingeniería y construcción en CDMX.";
 const keywords = "constructora, arquitectura, ingeniería, desarrollos, construcción, inversión";
+const heroTitleParts = homeContent.hero.title.split(" + ");
+const heroTitleLeft = heroTitleParts[0] ?? homeContent.hero.title;
+const heroTitleRight = heroTitleParts[1] ?? "";
 ---
 
 <BaseLayout
@@ -25,7 +28,11 @@ const keywords = "constructora, arquitectura, ingeniería, desarrollos, construc
     <div class="hero_overlay"></div>
     <div class="hero_content">
       <img src={assets.logos.letrasAlt} alt="KO729" class="hero_logo" />
-      <p class="hero_subtitle">{homeContent.hero.title}</p>
+      <p class="hero_subtitle">
+        <span class="hero_title-part">{heroTitleLeft}</span>
+        {heroTitleRight && <span class="hero_title-plus"> + </span>}
+        {heroTitleRight && <span class="hero_title-part">{heroTitleRight}</span>}
+      </p>
     </div>
   </section>
 
